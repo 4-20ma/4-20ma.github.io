@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="{ url: &#39;4-20ma.io&#39; }"/>
+        <meta property="og:title" content="How to remove a git submodule"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>PLC - { url: &#39;4-20ma.io&#39; }</title>
+    <title>How to remove a git submodule - { url: &#39;4-20ma.io&#39; }</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -107,9 +107,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -117,23 +115,85 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">#PLC</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2012/12/28/arduino-library-communicating-with-modbus-slaves-over-rs232-485-via-rtu-protocol/">
-        <span class="archive-date">
-            Dec 2012
-        </span>
-        Arduino library for communicating with Modbus slaves over RS232/485 (via RTU protocol)
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2013/08/21/howto-remove-git-submodule/">
+                How to remove a git submodule
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2013-08-21</span>
+            <a href="#disqus_thread" class="comments">Comments</a>
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>This is an excellent article describing how to <a href="https://davidwalsh.name/git-remove-submodule" target="_blank" rel="external">remove a git submodule</a>.</p>
+<p>Short version below (in case original disappears):</p>
+<ul>
+<li>Delete the relevant section from the <code>.gitmodules</code> file</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>.gitmodules</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule &quot;vendor&quot;]</div><div class="line">  path = vendor</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
+<ul>
+<li>Stage the changes</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .gitmodules</div></pre></td></tr></table></figure>
+<ul>
+<li>Delete the relevant section from <code>.git/config</code> file</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>.git/config</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule &quot;vendor&quot;]</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Clean up</p>
+<ol>
+<li>Unstage and remove submodule path from the index (don’t include a trailing slash – that will lead to an error)</li>
+<li>Remove submodule files from index</li>
+<li>Commit the changes</li>
+<li>Remove submodule files</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git rm --cached path/to/submodule</div><div class="line">$ rm -rf .git/modules/submodule_name</div><div class="line">$ git commit</div><div class="line">$ rm -rf path/to/submodule</div></pre></td></tr></table></figure>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/git/">#git</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+    </div>
+    
+
 </div>
-            
         </section>
+
     </div>
 </div>
 
