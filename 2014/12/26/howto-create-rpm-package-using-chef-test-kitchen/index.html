@@ -157,17 +157,17 @@
 <li>Virtual machine (Parallels 10.0.0 used, but VirtualBox works as well)</li>
 </ul>
 <h4 id="FcgiWrap-Example"><a href="#FcgiWrap-Example" class="headerlink" title="FcgiWrap Example"></a>FcgiWrap Example</h4><p>Clone the repository:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div></pre></td></tr></table></figure>
 <h4 id="Postfix-Example"><a href="#Postfix-Example" class="headerlink" title="Postfix Example"></a>Postfix Example</h4><p>Clone the repository:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm.git</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div></pre></td></tr></table></figure>
 <h4 id="Both-Examples"><a href="#Both-Examples" class="headerlink" title="Both Examples"></a>Both Examples</h4><p>Use Test Kitchen to converge the node and retrieve the resultant RPM from <code>.products/</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bundle <span class="built_in">exec</span> kitchen converge</div></pre></td></tr></table></figure>
 <p>You can now transfer the <code>.rpm</code> file to the target machine(s) and install via <code>rpm</code> or <code>yum</code>.</p>
 <h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Test Kitchen is not only effective at performing integration testing for a Chef cookbook, it is also useful to spin up a pristine virtual machine to perform tasks such as building an RPM package.</p>
 <h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p>Cookbook Sources:</p>
 <ul>
-<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git" target="_blank" rel="external">FcgiWrap RPM Cookbook</a> – builds FcgiWrap RPM</nop></li>
-<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-postfix_rpm.git" target="_blank" rel="external">Postfix RPM Cookbook</a> – builds Postfix RPM</nop></li>
+<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-fcgiwrap_rpm" target="_blank" rel="external">FcgiWrap RPM Cookbook</a> – builds FcgiWrap RPM</nop></li>
+<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-postfix_rpm" target="_blank" rel="external">Postfix RPM Cookbook</a> – builds Postfix RPM</nop></li>
 </ul>
 <p>Software used (alphabetical):</p>
 <ul>

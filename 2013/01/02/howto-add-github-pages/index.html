@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="{ url: &#39;4-20ma.io&#39; }"/>
+        <meta property="og:title" content="How to add Github Pages to a project"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2013/8 - { url: &#39;4-20ma.io&#39; }</title>
+    <title>How to add Github Pages to a project - { url: &#39;4-20ma.io&#39; }</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -107,9 +107,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -117,86 +115,68 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">2013/8</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2012/12/29/arduino-library-texas-instruments-ads7828/">
-        <span class="archive-date">
-            Dec 2012
-        </span>
-        Arduino library for Texas Instruments ADS7828 12-bit, 8-channel I2C A/D converter
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2013/01/02/howto-add-github-pages/">
+                How to add Github Pages to a project
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2013-01-02</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>I occasionally need to add Github Pages (gh-pages) to a project. These instructions are based on a Github help <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">article</a> and have been customized for my use.</p>
+<p>Create orphan <code>gh-pages</code> branch in <code>doc/html</code> directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> doc/html</div><div class="line">$ git init</div><div class="line">$ git remote add origin `git config --file ../../.git/config remote.origin.url`</div><div class="line">$ git checkout --orphan gh-pages</div><div class="line">$ git rm -rf .</div></pre></td></tr></table></figure>
+<p>Create initial commit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ touch index.html</div><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">'Initial commit'</span></div></pre></td></tr></table></figure>
+<p>Configure <code>gh-pages</code> branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config branch.gh-pages.remote origin              <span class="comment"># optional</span></div><div class="line">$ git config branch.gh-pages.merge refs/heads/gh-pages  <span class="comment"># optional</span></div><div class="line">$ git push origin gh-pages</div></pre></td></tr></table></figure>
+<p>Enjoy responsibly.</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a> <a href="/tags/gh-pages/">#gh-pages</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+    </div>
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2012/12/31/arduino-library-texas-instruments-pcf8575c/">
-        <span class="archive-date">
-            Dec 2012
-        </span>
-        Arduino library for Texas Instruments PCF8575C 16-bit I2C I/O expander
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2012/12/28/arduino-library-communicating-with-modbus-slaves-over-rs232-485-via-rtu-protocol/">
-        <span class="archive-date">
-            Dec 2012
-        </span>
-        Arduino library for communicating with Modbus slaves over RS232/485 (via RTU protocol)
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2013/01/02/howto-add-github-pages/">
-        <span class="archive-date">
-            Jan 2013
-        </span>
-        How to add Github Pages to a project
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2013/07/28/howto-package-jquery-plugin-gem-rails-31-asset-pipeline/">
-        <span class="archive-date">
-            Jul 2013
-        </span>
-        How to package a jQuery plugin as a gem for Rails 3.1 asset pipeline
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2013/08/21/howto-remove-git-submodule/">
-        <span class="archive-date">
-            Aug 2013
-        </span>
-        How to remove a git submodule
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2014/03/17/howto-mount-remote-file-system-over-ssh/">
-        <span class="archive-date">
-            Mar 2014
-        </span>
-        How to mount a remote file system over ssh
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2014/12/26/howto-create-rpm-package-using-chef-test-kitchen/">
-        <span class="archive-date">
-            Dec 2014
-        </span>
-        How to create an RPM package using Chef, Test Kitchen
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
 

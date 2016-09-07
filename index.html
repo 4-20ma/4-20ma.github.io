@@ -156,17 +156,17 @@
 <li>Virtual machine (Parallels 10.0.0 used, but VirtualBox works as well)</li>
 </ul>
 <h4 id="FcgiWrap-Example"><a href="#FcgiWrap-Example" class="headerlink" title="FcgiWrap Example"></a>FcgiWrap Example</h4><p>Clone the repository:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div></pre></td></tr></table></figure>
 <h4 id="Postfix-Example"><a href="#Postfix-Example" class="headerlink" title="Postfix Example"></a>Postfix Example</h4><p>Clone the repository:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm.git</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div></pre></td></tr></table></figure>
 <h4 id="Both-Examples"><a href="#Both-Examples" class="headerlink" title="Both Examples"></a>Both Examples</h4><p>Use Test Kitchen to converge the node and retrieve the resultant RPM from <code>.products/</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bundle <span class="built_in">exec</span> kitchen converge</div></pre></td></tr></table></figure>
 <p>You can now transfer the <code>.rpm</code> file to the target machine(s) and install via <code>rpm</code> or <code>yum</code>.</p>
 <h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Test Kitchen is not only effective at performing integration testing for a Chef cookbook, it is also useful to spin up a pristine virtual machine to perform tasks such as building an RPM package.</p>
 <h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p>Cookbook Sources:</p>
 <ul>
-<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git" target="_blank" rel="external">FcgiWrap RPM Cookbook</a> – builds FcgiWrap RPM</nop></li>
-<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-postfix_rpm.git" target="_blank" rel="external">Postfix RPM Cookbook</a> – builds Postfix RPM</nop></li>
+<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-fcgiwrap_rpm" target="_blank" rel="external">FcgiWrap RPM Cookbook</a> – builds FcgiWrap RPM</nop></li>
+<li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-postfix_rpm" target="_blank" rel="external">Postfix RPM Cookbook</a> – builds Postfix RPM</nop></li>
 </ul>
 <p>Software used (alphabetical):</p>
 <ul>
@@ -309,6 +309,42 @@
     
         <div class="content">
             <p>Follow the instructions to <a href="http://www.prioritized.net/blog/gemify-assets-for-rails/" target="_blank" rel="external">Gemify Assets for Rails</a>. Refer to <a href="http://railscasts.com/episodes/245-new-gem-with-bundler" target="_blank" rel="external">RailsCast #245</a> for more information on packaging a gem.</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2013/01/02/howto-add-github-pages/">
+                How to add Github Pages to a project
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2013-01-02</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>I occasionally need to add Github Pages (gh-pages) to a project. These instructions are based on a Github help <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">article</a> and have been customized for my use.</p>
+<p>Create orphan <code>gh-pages</code> branch in <code>doc/html</code> directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> doc/html</div><div class="line">$ git init</div><div class="line">$ git remote add origin `git config --file ../../.git/config remote.origin.url`</div><div class="line">$ git checkout --orphan gh-pages</div><div class="line">$ git rm -rf .</div></pre></td></tr></table></figure>
+<p>Create initial commit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ touch index.html</div><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">'Initial commit'</span></div></pre></td></tr></table></figure>
+<p>Configure <code>gh-pages</code> branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config branch.gh-pages.remote origin              <span class="comment"># optional</span></div><div class="line">$ git config branch.gh-pages.merge refs/heads/gh-pages  <span class="comment"># optional</span></div><div class="line">$ git push origin gh-pages</div></pre></td></tr></table></figure>
+<p>Enjoy responsibly.</p>
 
         </div>
     
