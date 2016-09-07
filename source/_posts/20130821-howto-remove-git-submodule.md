@@ -1,6 +1,6 @@
 ---
 title: >-
-  How to remove a submodule within git
+  How to remove a git submodule
 date: 2013-08-21 20:18:00
 categories:
 - HOWTO
@@ -10,7 +10,7 @@ tags:
 - git
 ---
 
-This is an excellent article describing how to [remove a submodule](https://davidwalsh.name/git-remove-submodule) within git.
+This is an excellent article describing how to [remove a git submodule](https://davidwalsh.name/git-remove-submodule).
 
 Short version below (in case original disappears):
 
