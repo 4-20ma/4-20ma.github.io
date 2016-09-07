@@ -1,0 +1,13 @@
+#------------------------------------------------------------ 4-20ma.github.io
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+
+#-------------https://github.com/github/gitignore/blob/master/Jekyll.gitignore
+# _site/
+# .sass-cache/
+# .jekyll-metadata
