@@ -75,13 +75,13 @@ Test Kitchen is not only effective at performing integration testing for a Chef 
 
 Cookbook Sources:
 
-- [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git) – builds FcgiWrap RPM
-- [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm.git) – builds Postfix RPM
+- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git) – builds FcgiWrap RPM
+- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm.git) – builds Postfix RPM
 
 Software used (alphabetical):
 
 - [Chef](https://www.chef.io)
-- [FcgiWrap Source](https://github.com/schnell18/fcgiwrap)
+- <nop class="fa fa-github"> [schnell18](https://github.com/schnell18) / [FcgiWrap Source](https://github.com/schnell18/fcgiwrap)
 - [Git](https://git-scm.com)
 - [Parallels](http://www.parallels.com)
 - [Postfix](http://www.postfix.org)

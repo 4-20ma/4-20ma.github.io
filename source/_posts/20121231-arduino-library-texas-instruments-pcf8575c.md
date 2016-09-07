@@ -29,4 +29,4 @@ The device features a 16-bit quasi-bidirectional input/output (I/O) port (P07..P
 
 The fixed I2C address of the PCF8575C is the same as the PCF8575, PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices, in any combination, to share the same I2C bus or SMBus.
 
-Full source code documentation is available on GitHub: [4-20ma/I2cDiscreteIoExpander](https://github.com/4-20ma/I2cDiscreteIoExpander).
+View Source: <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [I2cDiscreteIoExpander](https://github.com/4-20ma/I2cDiscreteIoExpander).
