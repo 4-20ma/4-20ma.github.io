@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Miscellaneous posts related to hardware / software development and industrial process control.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Doc Walker">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="{ url: &#39;4-20ma&#39; }"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Miscellaneous posts related to hardware / software development and industrial process control." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="{ url: &#39;4-20ma&#39; }"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>{ url: &#39;4-20ma&#39; }</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
+        
+            <h1 id="main-title" class="title">{ url: '4-20ma' }</h1>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2014/12/26/howto-create-rpm-package-using-chef-test-kitchen/">
+                How to create an RPM package using Chef, Test Kitchen
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2014-12-26</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>This article describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.</p>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I needed customized versions of the <strong>FcgiWrap</strong> and <strong>Postfix</strong> RPM packages and preferred to develop a method that would allow me to periodically update the packages as new versions of the upstream source were released. Vagrant is a great tool for managing virtual machines and I was originally going to use this to provision a new VM to build the packages. I developed Chef cookbooks to provision the VMs, and while developing integration tests for the provisioners, I realized that it was more effective to use Test Kitchen to build and test my VMs (which itself uses Vagrant).</p>
+<h4 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h4><p>The following are required:</p>
+<ul>
+<li>Git (v2.2.1 used)</li>
+<li>Ruby (v2.1.5 used)</li>
+<li>Chef (v11.16.4 used)</li>
+<li>Test Kitchen (v1.2.1 used)</li>
+<li>Vagrant (v1.6.5 used)</li>
+<li>Virtual machine (Parallels 10.0.0 used, but VirtualBox works as well)</li>
+</ul>
+<h4 id="FcgiWrap-Example"><a href="#FcgiWrap-Example" class="headerlink" title="FcgiWrap Example"></a>FcgiWrap Example</h4><p>Clone the repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div></pre></td></tr></table></figure>
+<h4 id="Postfix-Example"><a href="#Postfix-Example" class="headerlink" title="Postfix Example"></a>Postfix Example</h4><p>Clone the repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm.git</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div></pre></td></tr></table></figure>
+<h4 id="Both-Examples"><a href="#Both-Examples" class="headerlink" title="Both Examples"></a>Both Examples</h4><p>Use Test Kitchen to converge the node and retrieve the resultant RPM from <code>.products/</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bundle <span class="built_in">exec</span> kitchen converge</div></pre></td></tr></table></figure>
+<p>You can now transfer the <code>.rpm</code> file to the target machine(s) and install via <code>rpm</code> or <code>yum</code>.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Test Kitchen is not only effective at performing integration testing for a Chef cookbook, it is also useful to spin up a pristine virtual machine to perform tasks such as building an RPM package.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p>Cookbook Sources:</p>
+<ul>
+<li><a href="https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git" target="_blank" rel="external">FcgiWrap RPM Cookbook</a> – builds FcgiWrap RPM</li>
+<li><a href="https://github.com/4-20ma/cookbook-postfix_rpm.git" target="_blank" rel="external">Postfix RPM Cookbook</a> – builds Postfix RPM</li>
+</ul>
+<p>Software used (alphabetical):</p>
+<ul>
+<li><a href="https://www.chef.io" target="_blank" rel="external">Chef</a></li>
+<li><a href="https://github.com/schnell18/fcgiwrap" target="_blank" rel="external">FcgiWrap Source</a></li>
+<li><a href="https://git-scm.com" target="_blank" rel="external">Git</a></li>
+<li><a href="http://www.parallels.com" target="_blank" rel="external">Parallels</a></li>
+<li><a href="http://www.postfix.org" target="_blank" rel="external">Postfix</a></li>
+<li><a href="https://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby</a></li>
+<li><a href="http://kitchen.ci" target="_blank" rel="external">Test Kitchen</a></li>
+<li><a href="https://www.vagrantup.com" target="_blank" rel="external">Vagrant</a></li>
+<li><a href="https://www.virtualbox.org" target="_blank" rel="external">VirtualBox</a></li>
+</ul>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2014/03/17/howto-mount-remote-file-system-over-ssh/">
+                How to mount a remote file system over ssh
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2014-03-17</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>The following post describes how to mount a remote file system over <code>ssh</code> on Mac OS X 10.9.2. With minor modifications, the same thing can be achieved on other platforms.</p>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I recently needed to manipulate a <code>sqlite</code> database on a virtual machine and my gui tool lacked the ability to tunnel over <code>ssh</code>.</p>
+<p>Enter <code>sshfs</code>: Secure SHell FileSystem – a file system for Linux (and other operating systems with a FUSE implementation, such as Mac OS X or FreeBSD) capable of operating on files on a remote computer using just a secure shell login on the remote computer.</p>
+<p>In the example below, I’m mounting a file system from a VirtualBox virtual machine controlled by <code>vagrant</code> (which happens to use port 2200 on the loopback address 127.0.0.1).</p>
+<h4 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h4><ul>
+<li>Mac OS X 10.9.2</li>
+<li><a href="http://brew.sh" target="_blank" rel="external">Homebrew</a></li>
+</ul>
+<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p>Install <code>sshfs</code> via Homebrew:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install sshfs</div></pre></td></tr></table></figure>
+<p>Follow instructions for <code>osxfuse</code> (refer to <code>brew info osxfuse</code>):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mount -t osxfusefs</div><div class="line">$ sudo kextunload -b com.github.osxfuse.filesystems.osxfusefs</div><div class="line">$ sudo /bin/cp -RfX /usr/<span class="built_in">local</span>/Cellar/osxfuse/2.6.2/Library/Filesystems/osxfusefs.fs /Library/Filesystems</div><div class="line">$ sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs</div></pre></td></tr></table></figure>
+<p>The remote file system is now mounted at <code>/Volumes/mount_name</code> and one can access files via Mac OS applications and/or the Finder.</p>
+<h4 id="Unmount"><a href="#Unmount" class="headerlink" title="Unmount"></a>Unmount</h4><p>Close any open files and <code>cd</code> out of the <code>mount_name</code> directory before executing the following command to unmount the remote file system:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ umount /Volumes/mount_name</div></pre></td></tr></table></figure>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p><code>sshfs</code> is a lightweight solution to efficiently mount a remote file system for local access.</p>
+<h4 id="Reference-s"><a href="#Reference-s" class="headerlink" title="Reference(s)"></a>Reference(s)</h4><ul>
+<li><a href="https://github.com/libfuse/sshfs" target="_blank" rel="external">SSH Filesystem</a></li>
+</ul>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2013/08/21/howto-remove-submodule-within-git/">
+                How to remove a submodule within git
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2013-08-21</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>This is an excellent article describing how to <a href="https://davidwalsh.name/git-remove-submodule" target="_blank" rel="external">remove a submodule</a> within git.</p>
+<p>Short version below (in case original disappears):</p>
+<ul>
+<li>Delete the relevant section from the <code>.gitmodules</code> file</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>.gitmodules</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule &quot;vendor&quot;]</div><div class="line">  path = vendor</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
+<ul>
+<li>Stage the changes</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .gitmodules</div></pre></td></tr></table></figure>
+<ul>
+<li>Delete the relevant section from <code>.git/config</code> file</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>.git/config</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule &quot;vendor&quot;]</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Clean up</p>
+<ol>
+<li>Unstage and remove submodule path from the index (don’t include a trailing slash – that will lead to an error)</li>
+<li>Remove submodule files from index</li>
+<li>Commit the changes</li>
+<li>Remove submodule files</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git rm --cached path/to/submodule</div><div class="line">$ rm -rf .git/modules/submodule_name</div><div class="line">$ git commit</div><div class="line">$ rm -rf path/to/submodule</div></pre></td></tr></table></figure>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2013/07/28/howto-package-jquery-plugin-gem-rails-31-asset-pipeline/">
+                How to package a jQuery plugin as a gem for Rails 3.1 asset pipeline
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2013-07-28</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>Follow the instructions to <a href="http://www.prioritized.net/blog/gemify-assets-for-rails/" target="_blank" rel="external">Gemify Assets for Rails</a>. Refer to <a href="http://railscasts.com/episodes/245-new-gem-with-bundler" target="_blank" rel="external">RailsCast #245</a> for more information on packaging a gem.</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2012/12/31/arduino-library-texas-instruments-pcf8575c/">
+                Arduino library for Texas Instruments PCF8575C 16-bit I2C I/O expander
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2012-12-31</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/arduino/">Arduino</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p><code>I2cDiscreteIoExpander</code> is an Arduino library for the Texas Instruments PCF8575C 16-bit I2C I/O expander.</p>
+<p>The PCF8575C provides general-purpose remote I/O expansion for most microcontroller families via the I2C interface serial clock (SCL) and serial data (SDA).</p>
+<p>The device features a 16-bit quasi-bidirectional input/output (I/O) port (P07..P00, P17..P10), including latched outputs with high-current drive capability for directly driving LEDs. Each quasi-bidirectional I/O can be used as an input or output without the use of a data-direction control signal. At power on, the I/Os are in 3-state mode. The strong pullup to VCC allows fast-rising edges into heavily loaded outputs. This device turns on when an output is written high and is switched off by the negative edge of SCL. The I/Os should be high before being used as inputs. After power on, as all the I/Os are set to 3-state, all of them can be used as inputs. Any change in setting of the I/Os as either inputs or outputs can be done with the write mode. If a high is applied externally to an I/O that has been written earlier to low, a large current (IOL) flows to GND.</p>
+<p>The fixed I2C address of the PCF8575C is the same as the PCF8575, PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices, in any combination, to share the same I2C bus or SMBus.</p>
+<p>Full source code documentation is available on GitHub: <a href="https://github.com/4-20ma/I2cDiscreteIoExpander" target="_blank" rel="external">4-20ma/I2cDiscreteIoExpander</a>.</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2012/12/29/arduino-library-texas-instruments-ads7828/">
+                Arduino library for Texas Instruments ADS7828 12-bit, 8-channel I2C A/D converter
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2012-12-29</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/arduino/">Arduino</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p><code>i2c_adc_ads7828</code> has a new home on GitHub: <a href="https://github.com/4-20ma/i2c_adc_ads7828" target="_blank" rel="external">4-20ma/i2c_adc_ads7828</a>.</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2012/12/28/arduino-library-communicating-with-modbus-slaves-over-rs232-485-via-rtu-protocol/">
+                Arduino library for communicating with Modbus slaves over RS232/485 (via RTU protocol)
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2012-12-28</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/arduino/">Arduino</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p><code>ModbusMaster</code> has a new home on GitHub: <a href="https://github.com/4-20ma/ModbusMaster" target="_blank" rel="external">4-20ma/ModbusMaster</a>.</p>
+
+        </div>
+    
+
+</div>
+            
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Miscellaneous posts related to hardware / software development and industrial process control.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2014/12/26/howto-create-rpm-package-using-chef-test-kitchen/">How to create an RPM pack</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2014/03/17/howto-mount-remote-file-system-over-ssh/">How to mount a remote fil</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2013/08/21/howto-remove-submodule-within-git/">How to remove a submodule</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2013/07/28/howto-package-jquery-plugin-gem-rails-31-asset-pipeline/">How to package a jQuery p</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/arduino/">Arduino</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/howto/">HOWTO</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/4-20ma">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/4_20ma?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:4-20ma@wvfans.net">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    © 2016 Doc Walker | All right reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
