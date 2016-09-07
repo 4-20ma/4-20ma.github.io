@@ -3,22 +3,22 @@ title: >-
   How to create an RPM package using Chef, Test Kitchen
 date: 2014-12-26 16:48:00
 categories:
-- HOWTO
+  - HOWTO
 subcategories:
-- Create RPM
+  - Create RPM
 tags:
-- centos
-- chef
-- fcgiwrap
-- git
-- parallels
-- postfix
-- rhel
-- rpm
-- ruby
-- test-kitchen
-- vagrant
-- virtualbox
+  - centos
+  - chef
+  - fcgiwrap
+  - git
+  - parallels
+  - postfix
+  - rhel
+  - rpm
+  - ruby
+  - test-kitchen
+  - vagrant
+  - virtualbox
 ---
 
 This article describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.

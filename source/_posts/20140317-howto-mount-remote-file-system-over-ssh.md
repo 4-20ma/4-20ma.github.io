@@ -3,18 +3,18 @@ title: >-
   How to mount a remote file system over ssh
 date: 2014-03-17 10:54:00
 categories:
-- HOWTO
+  - HOWTO
 subcategories:
-- Mount Remote Filesystem
+  - Mount Remote Filesystem
 tags:
-- fuse
-- homebrew
-- macosx
-- sqlite
-- ssh
-- sshfs
-- vagrant
-- virtualbox
+  - fuse
+  - homebrew
+  - macosx
+  - sqlite
+  - ssh
+  - sshfs
+  - vagrant
+  - virtualbox
 ---
 
 The following post describes how to mount a remote file system over `ssh` on Mac OS X 10.9.2. With minor modifications, the same thing can be achieved on other platforms.

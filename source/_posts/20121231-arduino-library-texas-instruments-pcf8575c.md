@@ -3,22 +3,22 @@ title: >-
   Arduino library for Texas Instruments PCF8575C 16-bit I2C I/O expander
 date: 2012-12-31 04:00:00
 categories:
-- Arduino
+  - Arduino
 subcategories:
-- I/O Expander
+  - I/O Expander
 tags:
-- C++
-- PCA9535
-- PCA9555
-- PCF8574
-- PCF8575
-- PCF8575C
-- arduino
-- dio
-- i2c
-- library
-- texas instruments
-- ti
+  - C++
+  - PCA9535
+  - PCA9555
+  - PCF8574
+  - PCF8575
+  - PCF8575C
+  - arduino
+  - dio
+  - i2c
+  - library
+  - texas instruments
+  - ti
 ---
 
 `I2cDiscreteIoExpander` is an Arduino library for the Texas Instruments PCF8575C 16-bit I2C I/O expander.

@@ -3,9 +3,9 @@ title: >-
   How to package a jQuery plugin as a gem for Rails 3.1 asset pipeline
 date: 2013-07-28 03:46:00
 categories:
-- HOWTO
+  - HOWTO
 subcategories:
-- Gemify Rails Assets
+  - Gemify Rails Assets
 tags:
 ---
 

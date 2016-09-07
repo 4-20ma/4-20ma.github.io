@@ -4,18 +4,18 @@ title: >-
   converter
 date: 2012-12-29 04:00:00
 categories:
-- Arduino
+  - Arduino
 subcategories:
-- A/D Converter
+  - A/D Converter
 tags:
-- ADS7828
-- C++
-- adc
-- arduino
-- i2c
-- library
-- texas instruments
-- ti
+  - ADS7828
+  - C++
+  - adc
+  - arduino
+  - i2c
+  - library
+  - texas instruments
+  - ti
 ---
 
 `i2c_adc_ads7828` has a new home: <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [i2c_adc_ads7828](https://github.com/4-20ma/i2c_adc_ads7828).
