@@ -27,7 +27,6 @@ This article describes how to leverage Chef and Test Kitchen to create a pristin
 
 I needed customized versions of the **FcgiWrap** and **Postfix** RPM packages and preferred to develop a method that would allow me to periodically update the packages as new versions of the upstream source were released. Vagrant is a great tool for managing virtual machines and I was originally going to use this to provision a new VM to build the packages. I developed Chef cookbooks to provision the VMs, and while developing integration tests for the provisioners, I realized that it was more effective to use Test Kitchen to build and test my VMs (which itself uses Vagrant).
 
-
 #### Prerequisites
 
 The following are required:
@@ -44,7 +43,7 @@ The following are required:
 Clone the repository:
 
 ```` bash
-$ git clone https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git
+$ git clone https://github.com/4-20ma/cookbook-fcgiwrap_rpm
 $ cd cookbook-fcgiwrap_rpm
 ````
 
@@ -53,7 +52,7 @@ $ cd cookbook-fcgiwrap_rpm
 Clone the repository:
 
 ```` bash
-$ git clone https://github.com/4-20ma/cookbook-postfix_rpm.git
+$ git clone https://github.com/4-20ma/cookbook-postfix_rpm
 $ cd cookbook-postfix_rpm
 ````
 
@@ -75,8 +74,8 @@ Test Kitchen is not only effective at performing integration testing for a Chef 
 
 Cookbook Sources:
 
-- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm.git) – builds FcgiWrap RPM
-- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm.git) – builds Postfix RPM
+- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm) – builds FcgiWrap RPM
+- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm) – builds Postfix RPM
 
 Software used (alphabetical):
 
