@@ -61,7 +61,7 @@ Close any open files and `cd` out of the `mount_name` directory before executing
 $ umount /Volumes/mount_name
 ````
 
-#### Conclusion
+#### Summary
 
 `sshfs` is a lightweight solution to efficiently mount a remote file system for local access.
 
