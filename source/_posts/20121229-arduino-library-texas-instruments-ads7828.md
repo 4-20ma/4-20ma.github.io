@@ -8,10 +8,10 @@ categories:
 subcategories:
   - A/D Converter
 tags:
-  - ADS7828
-  - C++
   - adc
+  - ads7828
   - arduino
+  - c++
   - i2c
   - library
   - texas instruments

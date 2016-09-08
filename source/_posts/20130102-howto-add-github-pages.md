@@ -5,9 +5,9 @@ date: 2013-01-02 08:16:00
 categories:
   - HOWTO
 tags:
+  - gh-pages
   - git
   - github
-  - gh-pages
 ---
 
 I occasionally need to add GitHub Pages (gh-pages) to a project. These instructions are based on a GitHub help [article](https://help.github.com/articles/creating-project-pages-from-the-command-line/) and have been customized for my use.

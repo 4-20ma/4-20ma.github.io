@@ -8,15 +8,15 @@ categories:
 subcategories:
   - Modbus
 tags:
-  - C++
-  - PLC
-  - RS232
-  - RS485
-  - RTU
   - arduino
+  - c++
+  - library
   - modbus
   - modbus master
-  - library
+  - plc
+  - rs232
+  - rs485
+  - rtu
   - serial
 ---
 

@@ -7,16 +7,16 @@ categories:
 subcategories:
   - I/O Expander
 tags:
-  - C++
-  - PCA9535
-  - PCA9555
-  - PCF8574
-  - PCF8575
-  - PCF8575C
   - arduino
+  - c++
   - dio
   - i2c
   - library
+  - pca9535
+  - pca9555
+  - pcf8574
+  - pcf8575
+  - pcf8575C
   - texas instruments
   - ti
 ---
