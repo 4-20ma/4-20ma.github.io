@@ -1,6 +1,6 @@
 ---
 title: >-
-  How to add Github Pages to a project
+  How to add GitHub Pages to a project
 date: 2013-01-02 08:16:00
 categories:
   - HOWTO
@@ -10,7 +10,9 @@ tags:
   - gh-pages
 ---
 
-I occasionally need to add Github Pages (gh-pages) to a project. These instructions are based on a Github help [article](https://help.github.com/articles/creating-project-pages-from-the-command-line/) and have been customized for my use.
+I occasionally need to add GitHub Pages (gh-pages) to a project. These instructions are based on a GitHub help [article](https://help.github.com/articles/creating-project-pages-from-the-command-line/) and have been customized for my use.
+
+<!-- more -->
 
 Create orphan `gh-pages` branch in `doc/html` directory:
 
@@ -39,3 +41,8 @@ $ git push origin gh-pages
 ````
 
 Enjoy responsibly.
+
+#### References
+
+<nop class="fa fa-github"> | GitHub Help / [GitHub Pages Basics](https://help.github.com/categories/github-pages-basics/)
+<nop class="fa fa-github"> | GitHub Help / [Creating Project Pages from the command line](https://help.github.com/articles/creating-project-pages-from-the-command-line/)
