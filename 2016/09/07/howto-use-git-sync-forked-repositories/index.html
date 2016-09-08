@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="{ url: &#39;4-20ma.io&#39; }"/>
+        <meta property="og:title" content="How to use Git to sync forked repositories"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>fuse - { url: &#39;4-20ma.io&#39; }</title>
+    <title>How to use Git to sync forked repositories - { url: &#39;4-20ma.io&#39; }</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -107,9 +107,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -117,23 +115,76 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">#fuse</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2014/03/17/howto-mount-remote-file-system-over-ssh/">
-        <span class="archive-date">
-            Mar 2014
-        </span>
-        How to mount a remote file system over ssh
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2016/09/07/howto-use-git-sync-forked-repositories/">
+                How to use Git to sync forked repositories
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2016-09-07</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>This article describes how to use <code>git</code> to sync forked repositories.</p>
+<h4 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h4><p>Fork the repository by clicking <strong>[ <nop class="fa fa-code-fork"> Fork ]</nop></strong> from your source code repository website. We’ll use <code>SOME-REPO</code>, in this example.</p>
+<h4 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h4><p>Create a local clone of your fork and configure <code>git</code> to sync your fork with the original:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/YOUR-USERNAME/SOME-REPO</div><div class="line">$ git remote add upstream https://github.com/ORIGINAL-USER/SOME-REPO</div></pre></td></tr></table></figure>
+<h4 id="Contribute"><a href="#Contribute" class="headerlink" title="Contribute"></a>Contribute</h4><p>Hack on code in your fork; make <nop class="fa fa-github"> Pull Requests / <nop class="fa fa-gitlab"> Merge Requests.</nop></nop></p>
+<h4 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h4><p>Sync your fork to keep it up-to-date with the upstream repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin -v</div><div class="line">$ git fetch upstream -v</div><div class="line">$ git merge upstream/master</div></pre></td></tr></table></figure>
+<h4 id="Simplify"><a href="#Simplify" class="headerlink" title="Simplify"></a>Simplify</h4><p>Assign a <code>git</code> alias to perform the sync steps for you:</p>
+<figure class="highlight"><figcaption><span>~/.gitconfig</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[alias]</div><div class="line">  pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"</div></pre></td></tr></table></figure>
+<p>Usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git pu</div><div class="line">From https://github.com/YOUR-USERNAME/SOME-REPO</div><div class="line"> = [up to date]      master     -&gt; origin/master</div><div class="line">From https://github.com/ORIGINAL-USER/SOME-REPO</div><div class="line"> = [up to date]      master     -&gt; upstream/master</div><div class="line">Already up-to-date.</div></pre></td></tr></table></figure>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>Perform the <strong>Fork</strong> &amp; <strong>Clone</strong> steps once for each forked repository. <strong>Contribute</strong> regularly. <strong>Sync</strong> often.</p>
+<p>Enjoy responsibly.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><nop class="fa fa-github"> | Github Bootcamp / <a href="https://help.github.com/articles/fork-a-repo/" target="_blank" rel="external">Fork A Repo</a></nop></p>
+<p><nop class="fa fa-github"> | Github Guides / <a href="https://guides.github.com/activities/forking/" target="_blank" rel="external">Forking Projects</a></nop></p>
+<p><nop class="fa fa-gitlab"> | Gitlab / <a href="http://docs.gitlab.com/ce/gitlab-basics/fork-project.html" target="_blank" rel="external">How to fork a project</a></nop></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/gitlab/">#gitlab</a> <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a> <a href="/tags/fork/">#fork</a> <a href="/tags/repository/">#repository</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+    </div>
+    
+
 </div>
-            
         </section>
+
     </div>
 </div>
 
