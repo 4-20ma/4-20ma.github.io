@@ -25,6 +25,8 @@ I recently needed to manipulate a `sqlite` database on a virtual machine and my 
 
 Enter `sshfs`: Secure SHell FileSystem – a file system for Linux (and other operating systems with a FUSE implementation, such as Mac OS X or FreeBSD) capable of operating on files on a remote computer using just a secure shell login on the remote computer.
 
+<!-- more -->
+
 In the example below, I’m mounting a file system from a VirtualBox virtual machine controlled by `vagrant` (which happens to use port 2200 on the loopback address 127.0.0.1).
 
 #### Prerequisites
