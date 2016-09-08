@@ -27,6 +27,8 @@ This article describes how to leverage Chef and Test Kitchen to create a pristin
 
 I needed customized versions of the **FcgiWrap** and **Postfix** RPM packages and preferred to develop a method that would allow me to periodically update the packages as new versions of the upstream source were released. Vagrant is a great tool for managing virtual machines and I was originally going to use this to provision a new VM to build the packages. I developed Chef cookbooks to provision the VMs, and while developing integration tests for the provisioners, I realized that it was more effective to use Test Kitchen to build and test my VMs (which itself uses Vagrant).
 
+<!-- more -->
+
 #### Prerequisites
 
 The following are required:
@@ -38,30 +40,35 @@ The following are required:
 - Vagrant (v1.6.5 used)
 - Virtual machine (Parallels 10.0.0 used, but VirtualBox works as well)
 
-#### FcgiWrap Example
+#### Example / FcgiWrap
 
-Clone the repository:
+Clone the repository and use `kitchen` to converge the node:
 
 ```` bash
 $ git clone https://github.com/4-20ma/cookbook-fcgiwrap_rpm
 $ cd cookbook-fcgiwrap_rpm
+$ bundle exec kitchen converge
+...
+$ tree .products/
+.products/
+└── fcgiwrap-1.1.0-1.el6.x86_64.rpm
 ````
 
-#### Postfix Example
+You can now transfer the `.rpm` file to the target machine(s) and install via `rpm` or `yum`.
 
-Clone the repository:
+#### Example / Postfix
+
+Clone the repository and use `kitchen` to converge the node:
 
 ```` bash
 $ git clone https://github.com/4-20ma/cookbook-postfix_rpm
 $ cd cookbook-postfix_rpm
-````
-
-#### Both Examples
-
-Use Test Kitchen to converge the node and retrieve the resultant RPM from `.products/`:
-
-```` bash
 $ bundle exec kitchen converge
+...
+$ tree .products/
+.products/
+├── postfix-2.11.1-0.el6.x86_64.rpm
+└── postfix-perl-scripts-2.11.1-0.el6.x86_64.rpm
 ````
 
 You can now transfer the `.rpm` file to the target machine(s) and install via `rpm` or `yum`.
@@ -77,7 +84,7 @@ Cookbook Sources:
 - <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm) – builds FcgiWrap RPM
 - <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm) – builds Postfix RPM
 
-Software used (alphabetical):
+3rd party software used (alphabetical):
 
 - [Chef](https://www.chef.io)
 - <nop class="fa fa-github"> [schnell18](https://github.com/schnell18) / [FcgiWrap Source](https://github.com/schnell18/fcgiwrap)
