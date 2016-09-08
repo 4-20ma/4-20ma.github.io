@@ -10,9 +10,17 @@ tags:
   - github
 ---
 
+#### Overview
+
+GitHub Pages is a static site hosting service and is designed to host personal, organization, or project pages directly from a GitHub repository.
+
+#### Background
+
 I occasionally need to add GitHub Pages (gh-pages) to a project. These instructions are based on a GitHub help [article](https://help.github.com/articles/creating-project-pages-from-the-command-line/) and have been customized for my use.
 
 <!-- more -->
+
+#### Steps
 
 Create orphan `gh-pages` branch in `doc/html` directory:
 
@@ -40,7 +48,7 @@ $ git config branch.gh-pages.merge refs/heads/gh-pages  # optional
 $ git push origin gh-pages
 ````
 
-Enjoy responsibly.
+((( <nop class="fa fa-glass"> - Enjoy responsibly. - <nop class="fa fa-music"> )))
 
 #### References
 
