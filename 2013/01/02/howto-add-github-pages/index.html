@@ -145,15 +145,16 @@
         
 
         <!-- Post Content -->
-        <p>I occasionally need to add GitHub Pages (gh-pages) to a project. These instructions are based on a GitHub help <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">article</a> and have been customized for my use.</p>
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>GitHub Pages is a static site hosting service and is designed to host personal, organization, or project pages directly from a GitHub repository.</p>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I occasionally need to add GitHub Pages (gh-pages) to a project. These instructions are based on a GitHub help <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">article</a> and have been customized for my use.</p>
 <a id="more"></a>
-<p>Create orphan <code>gh-pages</code> branch in <code>doc/html</code> directory:</p>
+<h4 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h4><p>Create orphan <code>gh-pages</code> branch in <code>doc/html</code> directory:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> doc/html</div><div class="line">$ git init</div><div class="line">$ git remote add origin `git config --file ../../.git/config remote.origin.url`</div><div class="line">$ git checkout --orphan gh-pages</div><div class="line">$ git rm -rf .</div></pre></td></tr></table></figure>
 <p>Create initial commit:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ touch index.html</div><div class="line">$ git add .</div><div class="line">$ git commit -m <span class="string">'Initial commit'</span></div></pre></td></tr></table></figure>
 <p>Configure <code>gh-pages</code> branch:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config branch.gh-pages.remote origin              <span class="comment"># optional</span></div><div class="line">$ git config branch.gh-pages.merge refs/heads/gh-pages  <span class="comment"># optional</span></div><div class="line">$ git push origin gh-pages</div></pre></td></tr></table></figure>
-<p>Enjoy responsibly.</p>
+<p>((( <nop class="fa fa-glass"> - Enjoy responsibly. - <nop class="fa fa-music"> )))</nop></nop></p>
 <h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><nop class="fa fa-github"> | GitHub Help / <a href="https://help.github.com/categories/github-pages-basics/" target="_blank" rel="external">GitHub Pages Basics</a></nop></p>
 <p><nop class="fa fa-github"> | GitHub Help / <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">Creating Project Pages from the command line</a></nop></p>
 

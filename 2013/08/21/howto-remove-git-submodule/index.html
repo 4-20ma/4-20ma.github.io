@@ -145,33 +145,25 @@
         
 
         <!-- Post Content -->
-        <p>This is an excellent article describing how to <a href="https://davidwalsh.name/git-remove-submodule" target="_blank" rel="external">remove a git submodule</a>.</p>
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><blockquote><p>It often happens that while working on one project, you need to use another project from within it. Perhaps it’s a library that a third party developed or that you’re developing separately and using in multiple parent projects. A common issue arises in these scenarios: you want to be able to treat the two projects as separate yet still be able to use one from within the other.</p>
+<footer><strong>Scott Chacon and Ben Straub</strong><cite><a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="external">Pro Git</a></cite></footer></blockquote>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I frequently need to look up the exact series of commands remove a git submodule. This post is primarily for my convenience, but may be useful to others as well.</p>
 <a id="more"></a>
-<p>Short version below (in case original disappears):</p>
-<ul>
-<li>Delete the relevant section from the <code>.gitmodules</code> file</li>
-</ul>
-<figure class="highlight plain"><figcaption><span>.gitmodules</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule &quot;vendor&quot;]</div><div class="line">  path = vendor</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
-<ul>
-<li>Stage the changes</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .gitmodules</div></pre></td></tr></table></figure>
-<ul>
-<li>Delete the relevant section from <code>.git/config</code> file</li>
-</ul>
-<figure class="highlight plain"><figcaption><span>.git/config</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule &quot;vendor&quot;]</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
-<ul>
-<li><p>Clean up</p>
-<ol>
+<h4 id="Modify"><a href="#Modify" class="headerlink" title="Modify"></a>Modify</h4><p>Remove the relevant <code>submodule</code> section from each of the following files:</p>
+<figure class="highlight"><figcaption><span>.gitmodules</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule "vendor"]</div><div class="line">  path = vendor</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>.git/config</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[submodule "vendor"]</div><div class="line">  url = git://github.com/some-user/some-repo.git</div><div class="line">...</div></pre></td></tr></table></figure>
+<h4 id="Commit"><a href="#Commit" class="headerlink" title="Commit"></a>Commit</h4><ol>
+<li>Stage changed <code>.gitmodules</code> file</li>
 <li>Unstage and remove submodule path from the index (don’t include a trailing slash – that will lead to an error)</li>
 <li>Remove submodule files from index</li>
 <li>Commit the changes</li>
 <li>Remove submodule files</li>
 </ol>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git rm --cached path/to/submodule</div><div class="line">$ rm -rf .git/modules/submodule_name</div><div class="line">$ git commit</div><div class="line">$ rm -rf path/to/submodule</div></pre></td></tr></table></figure>
-<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><nop class="fa fa-git"> | <a href="https://git-scm.com/docs/git-submodule" target="_blank" rel="external">git-submodule</a></nop></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add .gitmodules</div><div class="line">$ git rm --cached path/to/submodule</div><div class="line">$ rm -rf .git/modules/submodule_name</div><div class="line">$ git commit</div><div class="line">$ rm -rf path/to/submodule</div></pre></td></tr></table></figure>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>Removing a submodule can be a tedious task, but can be accomplished by following the tasks in this post.</p>
+<p>((( <nop class="fa fa-glass"> - Enjoy your lighter repository. - <nop class="fa fa-music"> )))</nop></nop></p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><nop class="fa fa-git-square"> | Git Reference / <a href="https://git-scm.com/docs/git-submodule" target="_blank" rel="external">git-submodule</a></nop></p>
+<p><nop class="fa fa-git-square"> | Pro Git &gt; Git Tools / <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="external">Submodules</a></nop></p>
 <p><nop class="fa fa-external-link"> | David Walsh / <a href="https://davidwalsh.name/git-remove-submodule" target="_blank" rel="external">Remove a Submodule</a></nop></p>
 
     </div>
