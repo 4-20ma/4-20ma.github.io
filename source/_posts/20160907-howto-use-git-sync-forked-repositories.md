@@ -72,7 +72,7 @@ Already up-to-date.
 
 Perform the **Fork** & **Clone** steps once for each forked repository. **Contribute** regularly. **Sync** often.
 
-Enjoy responsibly.
+((( <nop class="fa fa-glass"> - Party like a rock star! - <nop class="fa fa-music"> )))
 
 #### References
 
