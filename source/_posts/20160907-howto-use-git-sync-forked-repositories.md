@@ -15,6 +15,12 @@ tags:
 
 This article describes how to use `git` to sync forked repositories.
 
+#### Background
+
+I frequently need to look up the exact series of commands needed to sync with an upstream repository. This article is primarily for my convenience, but may be useful to others as well.
+
+<!-- more -->
+
 #### Fork
 
 Fork the repository by clicking **[ <nop class="fa fa-code-fork"> Fork ]** from your source code repository website. We'll use `SOME-REPO`, in this example.
