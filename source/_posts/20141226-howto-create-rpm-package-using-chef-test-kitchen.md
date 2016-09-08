@@ -73,9 +73,11 @@ $ tree .products/
 
 You can now transfer the `.rpm` file to the target machine(s) and install via `rpm` or `yum`.
 
-#### Conclusion
+#### Summary
 
 Test Kitchen is not only effective at performing integration testing for a Chef cookbook, it is also useful to spin up a pristine virtual machine to perform tasks such as building an RPM package.
+
+((( <nop class="fa fa-glass"> - <nop class="fa fa-music"> )))
 
 ####  References
 
@@ -88,7 +90,7 @@ Cookbook Sources:
 
 - [Chef](https://www.chef.io)
 - <nop class="fa fa-github"> [schnell18](https://github.com/schnell18) / [FcgiWrap Source](https://github.com/schnell18/fcgiwrap)
-- [Git](https://git-scm.com)
+- <nop class="fa fa-git-square"> [Git](https://git-scm.com)
 - [Parallels](http://www.parallels.com)
 - [Postfix](http://www.postfix.org)
 - [Ruby](https://www.ruby-lang.org/en/)
