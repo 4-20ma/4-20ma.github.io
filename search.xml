@@ -6,8 +6,8 @@
     <entry>
       <title><![CDATA[How to use Git to sync forked repositories]]></title>
       <url>https://4-20ma.io/2016/09/07/howto-use-git-sync-forked-repositories/</url>
-      <content type="html"><![CDATA[<h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>This article describes how to use <code>git</code> to sync forked repositories.</p>
-<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I frequently need to look up the exact series of commands needed to sync with an upstream repository. This article is primarily for my convenience, but may be useful to others as well.</p>
+      <content type="html"><![CDATA[<h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>This post describes how to use <code>git</code> to sync forked repositories.</p>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I frequently need to look up the exact series of commands needed to sync with an upstream repository. This post is primarily for my convenience, but may be useful to others as well.</p>
 <a id="more"></a>
 <h4 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h4><p>Fork the repository by clicking <strong>[ <nop class="fa fa-code-fork"> Fork ]</nop></strong> from your source code repository website. We’ll use <code>SOME-REPO</code>, in this example.</p>
 <h4 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h4><p>Create a local clone of your fork and configure <code>git</code> to sync your fork with the original:</p>
@@ -30,7 +30,7 @@
     <entry>
       <title><![CDATA[How to create an RPM package using Chef, Test Kitchen]]></title>
       <url>https://4-20ma.io/2014/12/26/howto-create-rpm-package-using-chef-test-kitchen/</url>
-      <content type="html"><![CDATA[<p>This article describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.</p>
+      <content type="html"><![CDATA[<p>This post describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.</p>
 <h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I needed customized versions of the <strong>FcgiWrap</strong> and <strong>Postfix</strong> RPM packages and preferred to develop a method that would allow me to periodically update the packages as new versions of the upstream source were released. Vagrant is a great tool for managing virtual machines and I was originally going to use this to provision a new VM to build the packages. I developed Chef cookbooks to provision the VMs, and while developing integration tests for the provisioners, I realized that it was more effective to use Test Kitchen to build and test my VMs (which itself uses Vagrant).</p>
 <a id="more"></a>
 <h4 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h4><p>The following are required:</p>
