@@ -13,11 +13,11 @@ tags:
 
 #### Overview
 
-This article describes how to use `git` to sync forked repositories.
+This post describes how to use `git` to sync forked repositories.
 
 #### Background
 
-I frequently need to look up the exact series of commands needed to sync with an upstream repository. This article is primarily for my convenience, but may be useful to others as well.
+I frequently need to look up the exact series of commands needed to sync with an upstream repository. This post is primarily for my convenience, but may be useful to others as well.
 
 <!-- more -->
 

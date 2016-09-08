@@ -21,7 +21,7 @@ tags:
   - virtualbox
 ---
 
-This article describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.
+This post describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.
 
 #### Background
 
