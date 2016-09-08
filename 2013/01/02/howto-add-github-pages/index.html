@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="How to add Github Pages to a project"/>
+        <meta property="og:title" content="How to add GitHub Pages to a project"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>How to add Github Pages to a project - { url: &#39;4-20ma.io&#39; }</title>
+    <title>How to add GitHub Pages to a project - { url: &#39;4-20ma.io&#39; }</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -125,7 +125,7 @@
     <div class="post-header">
         <h1 class="title">
             <a href="/2013/01/02/howto-add-github-pages/">
-                How to add Github Pages to a project
+                How to add GitHub Pages to a project
             </a>
         </h1>
         <div class="post-info">
@@ -145,7 +145,8 @@
         
 
         <!-- Post Content -->
-        <p>I occasionally need to add Github Pages (gh-pages) to a project. These instructions are based on a Github help <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">article</a> and have been customized for my use.</p>
+        <p>I occasionally need to add GitHub Pages (gh-pages) to a project. These instructions are based on a GitHub help <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">article</a> and have been customized for my use.</p>
+<a id="more"></a>
 <p>Create orphan <code>gh-pages</code> branch in <code>doc/html</code> directory:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> doc/html</div><div class="line">$ git init</div><div class="line">$ git remote add origin `git config --file ../../.git/config remote.origin.url`</div><div class="line">$ git checkout --orphan gh-pages</div><div class="line">$ git rm -rf .</div></pre></td></tr></table></figure>
 <p>Create initial commit:</p>
@@ -153,6 +154,8 @@
 <p>Configure <code>gh-pages</code> branch:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config branch.gh-pages.remote origin              <span class="comment"># optional</span></div><div class="line">$ git config branch.gh-pages.merge refs/heads/gh-pages  <span class="comment"># optional</span></div><div class="line">$ git push origin gh-pages</div></pre></td></tr></table></figure>
 <p>Enjoy responsibly.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><nop class="fa fa-github"> | GitHub Help / <a href="https://help.github.com/categories/github-pages-basics/" target="_blank" rel="external">GitHub Pages Basics</a></nop></p>
+<p><nop class="fa fa-github"> | GitHub Help / <a href="https://help.github.com/articles/creating-project-pages-from-the-command-line/" target="_blank" rel="external">Creating Project Pages from the command line</a></nop></p>
 
     </div>
 
@@ -161,7 +164,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a> <a href="/tags/gh-pages/">#gh-pages</a>
+            <a href="/tags/gh-pages/">#gh-pages</a> <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a>
         </div>
     
 
@@ -212,7 +215,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2013/08/21/howto-remove-git-submodule/">How to remove a git submo</a>
+                <a class="footer-post" href="/2013/08/21/howto-remove-git-submodule/">How to remove a Git submo</a>
             </li>
             
         </ul>

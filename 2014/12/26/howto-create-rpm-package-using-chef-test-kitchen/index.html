@@ -147,6 +147,7 @@
         <!-- Post Content -->
         <p>This article describes how to leverage Chef and Test Kitchen to create a pristine virtual machine from which to create an RPM package.</p>
 <h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I needed customized versions of the <strong>FcgiWrap</strong> and <strong>Postfix</strong> RPM packages and preferred to develop a method that would allow me to periodically update the packages as new versions of the upstream source were released. Vagrant is a great tool for managing virtual machines and I was originally going to use this to provision a new VM to build the packages. I developed Chef cookbooks to provision the VMs, and while developing integration tests for the provisioners, I realized that it was more effective to use Test Kitchen to build and test my VMs (which itself uses Vagrant).</p>
+<a id="more"></a>
 <h4 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h4><p>The following are required:</p>
 <ul>
 <li>Git (v2.2.1 used)</li>
@@ -156,12 +157,11 @@
 <li>Vagrant (v1.6.5 used)</li>
 <li>Virtual machine (Parallels 10.0.0 used, but VirtualBox works as well)</li>
 </ul>
-<h4 id="FcgiWrap-Example"><a href="#FcgiWrap-Example" class="headerlink" title="FcgiWrap Example"></a>FcgiWrap Example</h4><p>Clone the repository:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div></pre></td></tr></table></figure>
-<h4 id="Postfix-Example"><a href="#Postfix-Example" class="headerlink" title="Postfix Example"></a>Postfix Example</h4><p>Clone the repository:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div></pre></td></tr></table></figure>
-<h4 id="Both-Examples"><a href="#Both-Examples" class="headerlink" title="Both Examples"></a>Both Examples</h4><p>Use Test Kitchen to converge the node and retrieve the resultant RPM from <code>.products/</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bundle <span class="built_in">exec</span> kitchen converge</div></pre></td></tr></table></figure>
+<h4 id="Example-FcgiWrap"><a href="#Example-FcgiWrap" class="headerlink" title="Example / FcgiWrap"></a>Example / FcgiWrap</h4><p>Clone the repository and use <code>kitchen</code> to converge the node:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-fcgiwrap_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-fcgiwrap_rpm</div><div class="line">$ bundle <span class="built_in">exec</span> kitchen converge</div><div class="line">...</div><div class="line">$ tree .products/</div><div class="line">.products/</div><div class="line">└── fcgiwrap-1.1.0-1.el6.x86_64.rpm</div></pre></td></tr></table></figure>
+<p>You can now transfer the <code>.rpm</code> file to the target machine(s) and install via <code>rpm</code> or <code>yum</code>.</p>
+<h4 id="Example-Postfix"><a href="#Example-Postfix" class="headerlink" title="Example / Postfix"></a>Example / Postfix</h4><p>Clone the repository and use <code>kitchen</code> to converge the node:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/4-20ma/cookbook-postfix_rpm</div><div class="line">$ <span class="built_in">cd</span> cookbook-postfix_rpm</div><div class="line">$ bundle <span class="built_in">exec</span> kitchen converge</div><div class="line">...</div><div class="line">$ tree .products/</div><div class="line">.products/</div><div class="line">├── postfix-2.11.1-0.el6.x86_64.rpm</div><div class="line">└── postfix-perl-scripts-2.11.1-0.el6.x86_64.rpm</div></pre></td></tr></table></figure>
 <p>You can now transfer the <code>.rpm</code> file to the target machine(s) and install via <code>rpm</code> or <code>yum</code>.</p>
 <h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Test Kitchen is not only effective at performing integration testing for a Chef cookbook, it is also useful to spin up a pristine virtual machine to perform tasks such as building an RPM package.</p>
 <h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p>Cookbook Sources:</p>
@@ -169,7 +169,7 @@
 <li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-fcgiwrap_rpm" target="_blank" rel="external">FcgiWrap RPM Cookbook</a> – builds FcgiWrap RPM</nop></li>
 <li><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/cookbook-postfix_rpm" target="_blank" rel="external">Postfix RPM Cookbook</a> – builds Postfix RPM</nop></li>
 </ul>
-<p>Software used (alphabetical):</p>
+<p>3rd party software used (alphabetical):</p>
 <ul>
 <li><a href="https://www.chef.io" target="_blank" rel="external">Chef</a></li>
 <li><nop class="fa fa-github"> <a href="https://github.com/schnell18" target="_blank" rel="external">schnell18</a> / <a href="https://github.com/schnell18/fcgiwrap" target="_blank" rel="external">FcgiWrap Source</a></nop></li>
@@ -189,7 +189,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/chef/">#chef</a> <a href="/tags/test-kitchen/">#test-kitchen</a> <a href="/tags/git/">#git</a> <a href="/tags/vagrant/">#vagrant</a> <a href="/tags/virtualbox/">#virtualbox</a> <a href="/tags/centos/">#centos</a> <a href="/tags/fcgiwrap/">#fcgiwrap</a> <a href="/tags/parallels/">#parallels</a> <a href="/tags/postfix/">#postfix</a> <a href="/tags/rhel/">#rhel</a> <a href="/tags/rpm/">#rpm</a> <a href="/tags/ruby/">#ruby</a>
+            <a href="/tags/git/">#git</a> <a href="/tags/vagrant/">#vagrant</a> <a href="/tags/virtualbox/">#virtualbox</a> <a href="/tags/centos/">#centos</a> <a href="/tags/chef/">#chef</a> <a href="/tags/fcgiwrap/">#fcgiwrap</a> <a href="/tags/parallels/">#parallels</a> <a href="/tags/postfix/">#postfix</a> <a href="/tags/rhel/">#rhel</a> <a href="/tags/rpm/">#rpm</a> <a href="/tags/ruby/">#ruby</a> <a href="/tags/test-kitchen/">#test-kitchen</a>
         </div>
     
 
@@ -240,7 +240,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2013/08/21/howto-remove-git-submodule/">How to remove a git submo</a>
+                <a class="footer-post" href="/2013/08/21/howto-remove-git-submodule/">How to remove a Git submo</a>
             </li>
             
         </ul>
