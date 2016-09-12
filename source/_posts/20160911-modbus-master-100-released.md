@@ -26,7 +26,7 @@ tags:
 <!-- more -->
 
 #### Features
-The following Modbus functions have been implemented:
+The following Modbus functions are available:
 
 Discrete Coils/Flags
 
@@ -102,6 +102,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-#### Source
+#### Resources
 
 <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [ModbusMaster](https://github.com/4-20ma/ModbusMaster)
+<nop class="fa fa-info-circle"> Source Code [Documentation](http://4-20ma.io/ModbusMaster/)
