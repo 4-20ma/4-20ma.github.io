@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Miscellaneous posts related to hardware / software development and industrial process control.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Doc Walker">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ModbusMaster v1.0.0 released"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Miscellaneous posts related to hardware / software development and industrial process control." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="{ url: &#39;4-20ma.io&#39; }"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>ModbusMaster v1.0.0 released - { url: &#39;4-20ma.io&#39; }</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2016/09/11/modbus-master-100-released/">
+                ModbusMaster v1.0.0 released
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2016-09-11</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/arduino/">Arduino</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p><code>ModbusMaster</code> is an Arduino library for communicating with Modbus slaves over RS232/485 (via RTU protocol). Version 1.0.0 was released on 11 Sep 2016 and includes a number of changes.</p>
+<a id="more"></a>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><p>The following Modbus functions have been implemented:</p>
+<p>Discrete Coils/Flags</p>
+<ul>
+<li>0x01 - Read Coils</li>
+<li>0x02 - Read Discrete Inputs</li>
+<li>0x05 - Write Single Coil</li>
+<li>0x0F - Write Multiple Coils</li>
+</ul>
+<p>Registers</p>
+<ul>
+<li>0x03 - Read Holding Registers</li>
+<li>0x04 - Read Input Registers</li>
+<li>0x06 - Write Single Register</li>
+<li>0x10 - Write Multiple Registers</li>
+<li>0x16 - Mask Write Register</li>
+<li>0x17 - Read Write Multiple Registers</li>
+</ul>
+<h4 id="Change-log"><a href="#Change-log" class="headerlink" title="Change log"></a>Change log</h4><p><a href="https://github.com/4-20ma/ModbusMaster/compare/v0.11.0...v1.0.0" target="_blank" rel="external">Full Changelog</a></p>
+<p><strong>Implemented enhancements:</strong></p>
+<ul>
+<li>Add continuous integration testing with travis <a href="https://github.com/4-20ma/ModbusMaster/issues/55" target="_blank" rel="external">#55</a></li>
+<li>Add Code of Conduct <a href="https://github.com/4-20ma/ModbusMaster/issues/54" target="_blank" rel="external">#54</a></li>
+<li>Create PULL_REQUEST_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/issues/49" target="_blank" rel="external">#49</a></li>
+<li>Create ISSUE_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/issues/48" target="_blank" rel="external">#48</a></li>
+<li>Change license to Apache 2.0 <a href="https://github.com/4-20ma/ModbusMaster/issues/45" target="_blank" rel="external">#45</a></li>
+<li>Set __MODBUSMASTER_DEBUG__ to 0 by default <a href="https://github.com/4-20ma/ModbusMaster/issues/35" target="_blank" rel="external">#35</a></li>
+<li>Pass Stream object instead of integer reference <a href="https://github.com/4-20ma/ModbusMaster/issues/17" target="_blank" rel="external">#17</a></li>
+<li>Add LICENSE, convert project to Apache 2.0 <a href="https://github.com/4-20ma/ModbusMaster/pull/67" target="_blank" rel="external">#67</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add example sketch for half-duplex RS485 <a href="https://github.com/4-20ma/ModbusMaster/pull/66" target="_blank" rel="external">#66</a> (<a href="https://github.com/kintel" target="_blank" rel="external">kintel</a>)</li>
+<li>Add continuous integration testing with Travis CI <a href="https://github.com/4-20ma/ModbusMaster/pull/63" target="_blank" rel="external">#63</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add initial .travis.yml configuration <a href="https://github.com/4-20ma/ModbusMaster/pull/62" target="_blank" rel="external">#62</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add CODE_OF_CONDUCT <a href="https://github.com/4-20ma/ModbusMaster/pull/56" target="_blank" rel="external">#56</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add initial PULL_REQUEST_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/pull/53" target="_blank" rel="external">#53</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add initial ISSUE_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/pull/50" target="_blank" rel="external">#50</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add preTransmission(), postTransmission() for half-duplex <a href="https://github.com/4-20ma/ModbusMaster/pull/44" target="_blank" rel="external">#44</a> (<a href="https://github.com/kintel" target="_blank" rel="external">kintel</a>)</li>
+<li>Disable __MODBUSMASTER_DEBUG__ mode by default <a href="https://github.com/4-20ma/ModbusMaster/pull/43" target="_blank" rel="external">#43</a> (<a href="https://github.com/kintel" target="_blank" rel="external">kintel</a>)</li>
+<li>Add STYLE coding style guide <a href="https://github.com/4-20ma/ModbusMaster/pull/29" target="_blank" rel="external">#29</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+</ul>
+<p><strong>Closed issues:</strong></p>
+<ul>
+<li>Fix documentation references in ModbusMaster.h, .cpp <a href="https://github.com/4-20ma/ModbusMaster/issues/69" target="_blank" rel="external">#69</a></li>
+<li>Clean up template wording <a href="https://github.com/4-20ma/ModbusMaster/issues/64" target="_blank" rel="external">#64</a></li>
+<li>Add Label section to CONTRIBUTING <a href="https://github.com/4-20ma/ModbusMaster/issues/60" target="_blank" rel="external">#60</a></li>
+<li>Update README contact information <a href="https://github.com/4-20ma/ModbusMaster/issues/58" target="_blank" rel="external">#58</a></li>
+</ul>
+<p><strong>Merged pull requests:</strong></p>
+<ul>
+<li>Clean up ISSUE/PULL_REQUEST templates <a href="https://github.com/4-20ma/ModbusMaster/pull/65" target="_blank" rel="external">#65</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add label guidance to CONTRIBUTING <a href="https://github.com/4-20ma/ModbusMaster/pull/61" target="_blank" rel="external">#61</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Update README contact information <a href="https://github.com/4-20ma/ModbusMaster/pull/59" target="_blank" rel="external">#59</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add email address to CODE_OF_CONDUCT <a href="https://github.com/4-20ma/ModbusMaster/pull/57" target="_blank" rel="external">#57</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Clarify instructions in ISSUE_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/pull/52" target="_blank" rel="external">#52</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add ISSUE_TEMPLATE title reqs, separator lines <a href="https://github.com/4-20ma/ModbusMaster/pull/51" target="_blank" rel="external">#51</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+</ul>
+<h4 id="License"><a href="#License" class="headerlink" title="License"></a>License</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Copyright:: 2009-2016 Doc Walker</div><div class="line"></div><div class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</div><div class="line">you may not use this file except in compliance with the License.</div><div class="line">You may obtain a copy of the License at</div><div class="line"></div><div class="line">    http://www.apache.org/licenses/LICENSE-2.0</div><div class="line"></div><div class="line">Unless required by applicable law or agreed to in writing, software</div><div class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</div><div class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</div><div class="line">See the License for the specific language governing permissions and</div><div class="line">limitations under the License.</div></pre></td></tr></table></figure>
+<h4 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h4><p><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/ModbusMaster" target="_blank" rel="external">ModbusMaster</a></nop></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/arduino/">#arduino</a> <a href="/tags/c/">#c++</a> <a href="/tags/library/">#library</a> <a href="/tags/modbus/">#modbus</a> <a href="/tags/modbus-master/">#modbus master</a> <a href="/tags/plc/">#plc</a> <a href="/tags/rs232/">#rs232</a> <a href="/tags/rs485/">#rs485</a> <a href="/tags/rtu/">#rtu</a> <a href="/tags/serial/">#serial</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Miscellaneous posts related to hardware / software development and industrial process control.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2016/09/11/modbus-master-100-released/">ModbusMaster v1.0.0 relea</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2016/09/07/howto-use-git-sync-forked-repositories/">How to use Git to sync fo</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2014/12/26/howto-create-rpm-package-using-chef-test-kitchen/">How to create an RPM pack</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2014/03/17/howto-mount-remote-file-system-over-ssh/">How to mount a remote fil</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/arduino/">Arduino</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/howto/">HOWTO</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/4-20ma">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/4_20ma?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:4-20ma@wvfans.net">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    © 2016 Doc Walker | All right reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
