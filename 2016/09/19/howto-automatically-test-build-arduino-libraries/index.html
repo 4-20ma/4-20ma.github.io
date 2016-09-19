@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Miscellaneous posts related to hardware / software development and industrial process control.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Doc Walker">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="How to automatically test build Arduino libraries"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Miscellaneous posts related to hardware / software development and industrial process control." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="{ url: &#39;4-20ma.io&#39; }"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>How to automatically test build Arduino libraries - { url: &#39;4-20ma.io&#39; }</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2016/09/19/howto-automatically-test-build-arduino-libraries/">
+                How to automatically test build Arduino libraries
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2016-09-19</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/howto/">HOWTO</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>This post describes how to use GitHub, Travis CI, and PlatformIO to automatically test build Arduino libraries.</p>
+<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>Modern languages and frameworks typically have mature, well-developed facilities for performing unit, integration, and functional testing. The Arduino/C++ platform is not as well-developed in terms of automated testing. Developers traditionally rely on manual testing of libraries (build via Arduino IDE) which is slow, prone to human error, and limit the ability to test against multiple hardware architectures.</p>
+<figure class="highlight plain"><figcaption><span>User Story</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">As a project owner</div><div class="line">I want my library to compile cleanly for multiple boards</div><div class="line">So that it may be used on a wide variety of hardware</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h4><p>The following are required:</p>
+<ul>
+<li><a href="https://github.com" target="_blank" rel="external">GitHub</a> account</li>
+<li><a href="https://travis-ci.org" target="_blank" rel="external">Travis CI</a> account<ul>
+<li>You can sign in with your GitHub account</li>
+</ul>
+</li>
+<li>Arduino <a href="https://www.arduino.cc/en/Reference/Libraries" target="_blank" rel="external">library</a></li>
+<li><a href="http://platformio.org" target="_blank" rel="external">PlatformIO</a><ul>
+<li>Mac OS X: <code>brew install platformio</code>  (v3.0.1 used)</li>
+</ul>
+</li>
+</ul>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>In the following example, the <a href="https://github.com/4-20ma/ModbusMaster" target="_blank" rel="external">ModbusMaster</a> Arduino library code is hosted on GitHub and Travis CI is configured to run for each push to the repository.</p>
+<p>GNU <code>make</code> is used to build the example sketches included with the library for each of 5 commonly used Arduino boards. During development, the command may be run from the console in order to build against individual boards or the entire set. The <code>Makefile</code> in the root directory of the library defines the build process and is configured to parallelize the Travis CI builds for multiple hardware architectures.</p>
+<p><code>Makefile</code> settings: adjust, as required; they are identical for all my projects.</p>
+<ul>
+<li><code>FIND</code> - points to bash <code>find</code> command</li>
+<li><code>DIR</code> - location of examples to build; this directory will be recursively searched for source files</li>
+<li><code>CRITERIA</code> - search for <code>*.ino</code> (newer) or <code>*.pde</code> (older) files</li>
+<li><code>BUILD</code> - points to bash <code>platformio</code> command</li>
+<li><code>LIB</code> - location of library to include in build</li>
+</ul>
+<p><code>Makefile</code> targets: run from the console for all or specific board testing.</p>
+<ul>
+<li><code>make all</code> - runs <code>make uno</code>, <code>make due</code>, <code>make huzzah</code>, <code>make genuino101</code>, <code>make teensy31</code></li>
+<li><code>make uno</code> - sets <code>PLATFORMIO_BOARD=uno</code> followed by <code>make build</code></li>
+<li><code>make due</code> - sets <code>PLATFORMIO_BOARD=due</code> followed by <code>make build</code></li>
+<li><code>make huzzah</code> - sets <code>PLATFORMIO_BOARD=huzzah</code> followed by <code>make build</code></li>
+<li><code>make genuino101</code> - sets <code>PLATFORMIO_BOARD=genuino101</code> followed by <code>make build</code></li>
+<li><code>make teensy31</code> - sets <code>PLATFORMIO_BOARD=teensy31</code> followed by <code>make build</code></li>
+</ul>
+<p><code>Makefile</code> targets: call from Travis CI to conduct builds in parallel.</p>
+<ul>
+<li><code>make build</code> - iterates through example directory, building each one in series</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>Makefile</span><a href="https://github.com/4-20ma/ModbusMaster/blob/master/Makefile" target="_blank" rel="external">ModbusMaster/Makefile</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#-------------------------------------------------------------------- settings</div><div class="line">FIND          := find</div><div class="line">DIR           := $(PWD)/examples</div><div class="line">CRITERIA      := \( -name &quot;*.ino&quot; -o -name &quot;*.pde&quot; \)</div><div class="line">EACH_EXAMPLE  := $(FIND) $(DIR) $(CRITERIA) -exec</div><div class="line">BUILD         := platformio ci</div><div class="line">LIB           := .</div><div class="line"></div><div class="line">#--------------------------------------------------------------------- targets</div><div class="line"># update .travis.yml if target boards added</div><div class="line">all: uno due huzzah genuino101 teensy31</div><div class="line"></div><div class="line">uno due huzzah genuino101 teensy31:</div><div class="line">	PLATFORMIO_BOARD=$@ $(MAKE) build</div><div class="line"></div><div class="line">build:</div><div class="line">	$(EACH_EXAMPLE) $(BUILD) --board=$(PLATFORMIO_BOARD) --lib=$(LIB) &#123;&#125; \;</div><div class="line"></div><div class="line">.PHONY: all uno due huzzah genuino101 teensy31 build</div></pre></td></tr></table></figure>
+<p>The <code>.travis.yml</code> configures Travis CI. In this example, Travis CI will run 5 parallel builds–1 for each <code>PLATFORMIO_BOARD</code> setting.</p>
+<figure class="highlight yaml"><figcaption><span>.travis.yml</span><a href="https://github.com/4-20ma/ModbusMaster/blob/master/.travis.yml" target="_blank" rel="external">ModbusMaster/.travis.yml</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> python</div><div class="line"></div><div class="line"><span class="attr">python:</span></div><div class="line"><span class="bullet">  -</span> <span class="number">2.7</span></div><div class="line"></div><div class="line"><span class="attr">sudo:</span> <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="attr">cache:</span></div><div class="line"><span class="attr">  directories:</span></div><div class="line"><span class="bullet">    -</span> ~/.platformio</div><div class="line"></div><div class="line"><span class="comment"># update Makefile if target boards added</span></div><div class="line"><span class="attr">env:</span></div><div class="line"><span class="bullet">  -</span> PLATFORMIO_BOARD=uno</div><div class="line"><span class="bullet">  -</span> PLATFORMIO_BOARD=due</div><div class="line"><span class="bullet">  -</span> PLATFORMIO_BOARD=huzzah</div><div class="line"><span class="bullet">  -</span> PLATFORMIO_BOARD=genuino101</div><div class="line"><span class="bullet">  -</span> PLATFORMIO_BOARD=teensy31</div><div class="line"></div><div class="line"><span class="attr">install:</span></div><div class="line"><span class="bullet">  -</span> pip install -U platformio</div><div class="line"></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> env</div><div class="line"><span class="bullet">  -</span> echo $HOME</div><div class="line"><span class="bullet">  -</span> echo $TRAVIS_BUILD_DIR</div><div class="line"><span class="bullet">  -</span> ls -al $PWD</div><div class="line"></div><div class="line"><span class="attr">script:</span></div><div class="line"><span class="bullet">  -</span> make build</div></pre></td></tr></table></figure>
+<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><p>While developing the library, run <code>make</code> from the console to build all examples against all boards configured in the <code>Makefile</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$ make</div><div class="line">PLATFORMIO_BOARD=uno /Applications/Xcode.app/Contents/Developer/usr/bin/make build</div><div class="line">find examples \( -name <span class="string">"*.ino"</span> -o -name <span class="string">"*.pde"</span> \) -exec platformio ci --board=uno --lib=. &#123;&#125; \;</div><div class="line">.</div><div class="line">...</div><div class="line">.</div><div class="line">Processing uno (platform: atmelavr, board: uno, framework: arduino)</div><div class="line">.</div><div class="line">...</div><div class="line">.</div><div class="line">Archiving .pioenvs/uno/libFrameworkArduino.a</div><div class="line">Archiving .pioenvs/uno/lib/libModbusMaster.a</div><div class="line">Indexing .pioenvs/uno/libFrameworkArduino.a</div><div class="line">Indexing .pioenvs/uno/lib/libModbusMaster.a</div><div class="line">Linking .pioenvs/uno/firmware.elf</div><div class="line">Building .pioenvs/uno/firmware.hex</div><div class="line">Calculating size .pioenvs/uno/firmware.elf</div><div class="line">AVR Memory Usage</div><div class="line">----------------</div><div class="line">Device: atmega328p</div><div class="line"></div><div class="line">Program:    3496 bytes (10.7% Full)</div><div class="line">(.text + .data + .bootloader)</div><div class="line"></div><div class="line">Data:        472 bytes (23.0% Full)</div><div class="line">(.data + .bss + .noinit)</div><div class="line"></div><div class="line"></div><div class="line">========================= [SUCCESS] Took 1.77 seconds =========================</div><div class="line">.</div><div class="line">...</div><div class="line">.</div></pre></td></tr></table></figure>
+<p>When code is pushed to the GitHub repository, Travis CI will automatically build all examples against each hardware architecture. Failed builds will be flagged in Pull Requests / commits so they may be resolved prior to merge.</p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>GitHub, Travis CI, and PlatformIO provide an effective platform for continuous integration test building of Arduino libraries. This integration assures the developer that their library compiles cleanly against selected hardware platforms.</p>
+<p>((( <nop class="fa fa-glass"> - <nop class="fa fa-music"> )))</nop></nop></p>
+<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><p><span class="fa fa-github"> <a href="https://github.com/kyab" target="_blank" rel="external">kyab</a> / <a href="https://github.com/kyab/travis-test-arduino" target="_blank" rel="external">travis-test-arduino</a> - inspiration for my use of PlatformIO<br><span class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/ModbusMaster" target="_blank" rel="external">ModbusMaster</a> - example library illustrating Arduino continuous integration<br><span class="fa fa-info-circle"> PlatformIO / <a href="http://platformio.org" target="_blank" rel="external">PlatformIO</a> - open source ecosystem for IoT development<br><span class="fa fa-info-circle"> Arduino Reference / <a href="https://www.arduino.cc/en/Reference/Libraries" target="_blank" rel="external">Libraries</a><br><span class="fa fa-info-circle"> Gnu / <a href="https://www.gnu.org/software/make/manual/make.html#Introduction" target="_blank" rel="external">Introduction to Makefiles</a><br><span class="fa fa-info-circle"> Wikipedia / <a href="https://en.wikipedia.org/wiki/Make_(software" target="_blank" rel="external">make</a><br><span class="fa fa-info-circle"> Wikipedia / <a href="https://en.wikipedia.org/wiki/Makefile" target="_blank" rel="external">Makefile</a></span></span></span></span></span></span></span></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/arduino/">#arduino</a> <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a> <a href="/tags/atmelavr/">#atmelavr</a> <a href="/tags/atmelsam/">#atmelsam</a> <a href="/tags/due/">#due</a> <a href="/tags/espressif8266/">#espressif8266</a> <a href="/tags/genuino101/">#genuino101</a> <a href="/tags/huzzah/">#huzzah</a> <a href="/tags/intel-arc32/">#intel_arc32</a> <a href="/tags/make/">#make</a> <a href="/tags/platformio/">#platformio</a> <a href="/tags/teensy/">#teensy</a> <a href="/tags/teensy31/">#teensy31</a> <a href="/tags/travis/">#travis</a> <a href="/tags/uno/">#uno</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Miscellaneous posts related to hardware / software development and industrial process control.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2016/09/19/howto-automatically-test-build-arduino-libraries/">How to automatically test</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2016/09/11/modbus-master-100-released/">ModbusMaster v1.0.0 relea</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2016/09/07/howto-use-git-sync-forked-repositories/">How to use Git to sync fo</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2014/12/26/howto-create-rpm-package-using-chef-test-kitchen/">How to create an RPM pack</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/arduino/">Arduino</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/howto/">HOWTO</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/4-20ma">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/4_20ma?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:4-20ma@wvfans.net">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    © 2016 Doc Walker | All right reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

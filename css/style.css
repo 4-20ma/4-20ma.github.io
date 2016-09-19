@@ -588,6 +588,9 @@ figure.highlight table tbody tr td.gutter {
   width: 40px;
   text-align: right;
 }
+figure.highlight table tbody tr td .line {
+  height: 1.45em;
+}
 figure.highlight table tbody tr td pre {
   margin-bottom: 0;
   color: #a9b7c6;
