@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="ModbusMaster v1.0.0 released"/>
+        <meta property="og:title" content="I2cDiscreteIoExpander v4.0.1 released"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>ModbusMaster v1.0.0 released - { url: &#39;4-20ma.io&#39; }</title>
+    <title>I2cDiscreteIoExpander v4.0.1 released - { url: &#39;4-20ma.io&#39; }</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -124,12 +124,12 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2016/09/11/modbus-master-100-released/">
-                ModbusMaster v1.0.0 released
+            <a href="/2016/09/27/I2cDiscreteIoExpander-401-released/">
+                I2cDiscreteIoExpander v4.0.1 released
             </a>
         </h1>
         <div class="post-info">
-            <span class="date">2016-09-11</span>
+            <span class="date">2016-09-27</span>
             
             
                 <span class="category">
@@ -145,65 +145,29 @@
         
 
         <!-- Post Content -->
-        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p><code>ModbusMaster</code> is an Arduino library for communicating with Modbus slaves over RS232/485 (via RTU protocol). Version 1.0.0 was released on 11 Sep 2016 and includes a number of changes.</p>
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p><code>I2cDiscreteIoExpander</code> is an Arduino library for the Texas Instruments PCF8575C 16-bit I<sup>2</sup>C I/O expander. Version 4.0.1 was released on 27 Sep 2016 and includes a number of changes.</p>
+<p>The PCF8575C provides general-purpose remote I/O expansion for most microcontroller families via the I<sup>2</sup>C interface serial clock (SCL) and serial data (SDA).</p>
 <a id="more"></a>
-<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><p>The following Modbus functions are available:</p>
-<p>Discrete Coils/Flags</p>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><p>The device features a 16-bit quasi-bidirectional input/output (I/O) port (P07..P00, P17..P10), including latched outputs with high-current drive capability for directly driving LEDs. Each quasi-bidirectional I/O can be used as an input or output without the use of a data-direction control signal. At power on, the I/Os are in 3-state mode. The strong pullup to VCC allows fast-rising edges into heavily loaded outputs. This device turns on when an output is written high and is switched off by the negative edge of SCL. The I/Os should be high before being used as inputs. After power on, as all the I/Os are set to 3-state, all of them can be used as inputs. Any change in setting of the I/Os as either inputs or outputs can be done with the write mode. If a high is applied externally to an I/O that has been written earlier to low, a large current (IOL) flows to GND.</p>
+<p>The fixed I<sup>2</sup>C address of the PCF8575C (0x20) is the same as the PCF8575, PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices, in any combination, to share the same I<sup>2</sup>C bus or SMBus.</p>
+<h4 id="Change-log"><a href="#Change-log" class="headerlink" title="Change log"></a>Change log</h4><p><a href="https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v3.0.1...v4.0.1" target="_blank" rel="external">Full Changelog</a></p>
+<p>IMPROVEMENTS</p>
 <ul>
-<li>0x01 - Read Coils</li>
-<li>0x02 - Read Discrete Inputs</li>
-<li>0x05 - Write Single Coil</li>
-<li>0x0F - Write Multiple Coils</li>
+<li>[BREAK] Update to IDE 1.5 library format v2.1 <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/30" target="_blank" rel="external">#30</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Use PlatformIO for Travis CI <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/24" target="_blank" rel="external">#24</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
 </ul>
-<p>Registers</p>
+<p>OTHER</p>
 <ul>
-<li>0x03 - Read Holding Registers</li>
-<li>0x04 - Read Input Registers</li>
-<li>0x06 - Write Single Register</li>
-<li>0x10 - Write Multiple Registers</li>
-<li>0x16 - Mask Write Register</li>
-<li>0x17 - Read Write Multiple Registers</li>
-</ul>
-<p>Both full-duplex and half-duplex RS232/485 transceivers are supported. Callback functions are provided to toggle Data Enable (DE) and Receiver Enable (/RE) pins.</p>
-<h4 id="Change-log"><a href="#Change-log" class="headerlink" title="Change log"></a>Change log</h4><p><a href="https://github.com/4-20ma/ModbusMaster/compare/v0.11.0...v1.0.0" target="_blank" rel="external">Full Changelog</a></p>
-<p><strong>Implemented enhancements:</strong></p>
-<ul>
-<li>Add continuous integration testing with travis <a href="https://github.com/4-20ma/ModbusMaster/issues/55" target="_blank" rel="external">#55</a></li>
-<li>Add Code of Conduct <a href="https://github.com/4-20ma/ModbusMaster/issues/54" target="_blank" rel="external">#54</a></li>
-<li>Create PULL_REQUEST_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/issues/49" target="_blank" rel="external">#49</a></li>
-<li>Create ISSUE_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/issues/48" target="_blank" rel="external">#48</a></li>
-<li>Change license to Apache 2.0 <a href="https://github.com/4-20ma/ModbusMaster/issues/45" target="_blank" rel="external">#45</a></li>
-<li>Set __MODBUSMASTER_DEBUG__ to 0 by default <a href="https://github.com/4-20ma/ModbusMaster/issues/35" target="_blank" rel="external">#35</a></li>
-<li>Pass Stream object instead of integer reference <a href="https://github.com/4-20ma/ModbusMaster/issues/17" target="_blank" rel="external">#17</a></li>
-<li>Add LICENSE, convert project to Apache 2.0 <a href="https://github.com/4-20ma/ModbusMaster/pull/67" target="_blank" rel="external">#67</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add example sketch for half-duplex RS485 <a href="https://github.com/4-20ma/ModbusMaster/pull/66" target="_blank" rel="external">#66</a> (<a href="https://github.com/kintel" target="_blank" rel="external">kintel</a>)</li>
-<li>Add continuous integration testing with Travis CI <a href="https://github.com/4-20ma/ModbusMaster/pull/63" target="_blank" rel="external">#63</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add initial .travis.yml configuration <a href="https://github.com/4-20ma/ModbusMaster/pull/62" target="_blank" rel="external">#62</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add CODE_OF_CONDUCT <a href="https://github.com/4-20ma/ModbusMaster/pull/56" target="_blank" rel="external">#56</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add initial PULL_REQUEST_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/pull/53" target="_blank" rel="external">#53</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add initial ISSUE_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/pull/50" target="_blank" rel="external">#50</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add preTransmission(), postTransmission() for half-duplex <a href="https://github.com/4-20ma/ModbusMaster/pull/44" target="_blank" rel="external">#44</a> (<a href="https://github.com/kintel" target="_blank" rel="external">kintel</a>)</li>
-<li>Disable __MODBUSMASTER_DEBUG__ mode by default <a href="https://github.com/4-20ma/ModbusMaster/pull/43" target="_blank" rel="external">#43</a> (<a href="https://github.com/kintel" target="_blank" rel="external">kintel</a>)</li>
-<li>Add STYLE coding style guide <a href="https://github.com/4-20ma/ModbusMaster/pull/29" target="_blank" rel="external">#29</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-</ul>
-<p><strong>Closed issues:</strong></p>
-<ul>
-<li>Fix documentation references in ModbusMaster.h, .cpp <a href="https://github.com/4-20ma/ModbusMaster/issues/69" target="_blank" rel="external">#69</a></li>
-<li>Clean up template wording <a href="https://github.com/4-20ma/ModbusMaster/issues/64" target="_blank" rel="external">#64</a></li>
-<li>Add Label section to CONTRIBUTING <a href="https://github.com/4-20ma/ModbusMaster/issues/60" target="_blank" rel="external">#60</a></li>
-<li>Update README contact information <a href="https://github.com/4-20ma/ModbusMaster/issues/58" target="_blank" rel="external">#58</a></li>
-</ul>
-<p><strong>Merged pull requests:</strong></p>
-<ul>
-<li>Clean up ISSUE/PULL_REQUEST templates <a href="https://github.com/4-20ma/ModbusMaster/pull/65" target="_blank" rel="external">#65</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add label guidance to CONTRIBUTING <a href="https://github.com/4-20ma/ModbusMaster/pull/61" target="_blank" rel="external">#61</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Update README contact information <a href="https://github.com/4-20ma/ModbusMaster/pull/59" target="_blank" rel="external">#59</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add email address to CODE_OF_CONDUCT <a href="https://github.com/4-20ma/ModbusMaster/pull/57" target="_blank" rel="external">#57</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Clarify instructions in ISSUE_TEMPLATE <a href="https://github.com/4-20ma/ModbusMaster/pull/52" target="_blank" rel="external">#52</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
-<li>Add ISSUE_TEMPLATE title reqs, separator lines <a href="https://github.com/4-20ma/ModbusMaster/pull/51" target="_blank" rel="external">#51</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Update header file caveat <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/40" target="_blank" rel="external">#40</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Fix README link, remove #include <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/38" target="_blank" rel="external">#38</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Remove extraneous #includes <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/36" target="_blank" rel="external">#36</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Update LICENSE copyright <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/34" target="_blank" rel="external">#34</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Streamline CHANGELOG entries, eliminate dupes <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/32" target="_blank" rel="external">#32</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Update CHANGELOG config <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/29" target="_blank" rel="external">#29</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Exclude /doc/ from repo, remove deprecated pdf docs <a href="https://github.com/4-20ma/I2cDiscreteIoExpander/pull/22" target="_blank" rel="external">#22</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
 </ul>
 <h4 id="License"><a href="#License" class="headerlink" title="License"></a>License</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Copyright:: 2009-2016 Doc Walker</div><div class="line"></div><div class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</div><div class="line">you may not use this file except in compliance with the License.</div><div class="line">You may obtain a copy of the License at</div><div class="line"></div><div class="line">    http://www.apache.org/licenses/LICENSE-2.0</div><div class="line"></div><div class="line">Unless required by applicable law or agreed to in writing, software</div><div class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</div><div class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</div><div class="line">See the License for the specific language governing permissions and</div><div class="line">limitations under the License.</div></pre></td></tr></table></figure>
-<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><p><span class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/ModbusMaster" target="_blank" rel="external">ModbusMaster</a><br><span class="fa fa-info-circle"> Source Code <a href="http://4-20ma.io/ModbusMaster/">Documentation</a><br><span class="fa fa-info-circle"> Modicon Modbus Protocol Reference Guide <a href="http://modbus.org/docs/PI_MBUS_300.pdf" target="_blank" rel="external">PI-MBUS-300</a></span></span></span></p>
+<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><p><span class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/I2cDiscreteIoExpander" target="_blank" rel="external">I2cDiscreteIoExpander</a><br><span class="fa fa-info-circle"> Source Code <a href="http://4-20ma.io/I2cDiscreteIoExpander/">Documentation</a><br><span class="fa fa-info-circle"> Texas Instruments / <a href="http://www.ti.com/product/pcf8575c" target="_blank" rel="external">PCF8575C Online datasheet</a></span></span></span></p>
 
     </div>
 
@@ -212,7 +176,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/arduino/">#arduino</a> <a href="/tags/c/">#c++</a> <a href="/tags/library/">#library</a> <a href="/tags/modbus/">#modbus</a> <a href="/tags/modbus-master/">#modbus master</a> <a href="/tags/plc/">#plc</a> <a href="/tags/rs232/">#rs232</a> <a href="/tags/rs485/">#rs485</a> <a href="/tags/rtu/">#rtu</a> <a href="/tags/serial/">#serial</a>
+            <a href="/tags/arduino/">#arduino</a> <a href="/tags/c/">#c++</a> <a href="/tags/dio/">#dio</a> <a href="/tags/i2c/">#i2c</a> <a href="/tags/library/">#library</a> <a href="/tags/pca9535/">#pca9535</a> <a href="/tags/pca9555/">#pca9555</a> <a href="/tags/pcf8574/">#pcf8574</a> <a href="/tags/pcf8575/">#pcf8575</a> <a href="/tags/pcf8575c/">#pcf8575C</a> <a href="/tags/texas-instruments/">#texas instruments</a> <a href="/tags/ti/">#ti</a>
         </div>
     
 
