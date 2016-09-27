@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="{ url: &#39;4-20ma.io&#39; }"/>
+        <meta property="og:title" content="i2c_adc_ads7828 v2.0.2 released"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>github - { url: &#39;4-20ma.io&#39; }</title>
+    <title>i2c_adc_ads7828 v2.0.2 released - { url: &#39;4-20ma.io&#39; }</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -107,9 +107,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -117,41 +115,94 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-terminal" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">#github</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2013/01/02/howto-add-github-pages/">
-        <span class="archive-date">
-            Jan 2013
-        </span>
-        How to add GitHub Pages to a project
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2016/09/27/i2c_adc_ads7828-202-released/">
+                i2c_adc_ads7828 v2.0.2 released
+            </a>
+        </h1>
+        <div class="post-info">
+            <span class="date">2016-09-27</span>
+            
+            
+                <span class="category">
+                    <a href="/categories/arduino/">Arduino</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p><code>i2c_adc_ads7828</code> is an Arduino library for the Texas Instruments ADS7828 12-bit, 8-channel I<sup>2</sup>C A/D converter. Version 2.0.2 was released on 27 Sep 2016 and includes a number of changes.</p>
+<a id="more"></a>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><p>The following features are available:</p>
+<ul>
+<li>Up to (4) A/D converters can be used on the same I<sup>2</sup>C bus (hardware-addressable via pins A0, A1 and software-addressable via ID 0..3; address 0x48..0x4C)</li>
+<li>A/D conversions may be initiated on a bus-, device-, or channel-specific level</li>
+<li>Retrieve values as 16-period moving average or last sample</li>
+<li>Built-in scaling function to return values in user-defined engineering units</li>
+</ul>
+<h4 id="Change-log"><a href="#Change-log" class="headerlink" title="Change log"></a>Change log</h4><p><a href="https://github.com/4-20ma/i2c_adc_ads7828/compare/v1.1.5...v2.0.2" target="_blank" rel="external">Full Changelog</a></p>
+<p>IMPROVEMENTS</p>
+<ul>
+<li>Add Code of Conduct <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/16" target="_blank" rel="external">#16</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>[BREAK] Change project license to Apache 2.0 <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/8" target="_blank" rel="external">#8</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Automate CHANGELOG <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/6" target="_blank" rel="external">#6</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add continuous integration testing via Travis CI <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/4" target="_blank" rel="external">#4</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>[BREAK] Update to IDE 1.5 library format v2.1 <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/3" target="_blank" rel="external">#3</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+</ul>
+<p>BUG FIXES</p>
+<ul>
+<li>Fix Rakefile git remote/branch <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/22" target="_blank" rel="external">#22</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+</ul>
+<p>OTHER</p>
+<ul>
+<li>Fix Rakefile whitespace, update CHANGELOG date <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/24" target="_blank" rel="external">#24</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Fix README link to examples folder <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/20" target="_blank" rel="external">#20</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Remove extraneous #includes/whitespace <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/18" target="_blank" rel="external">#18</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Update README content, layout, extension <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/14" target="_blank" rel="external">#14</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Add standard files to .gitignore <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/12" target="_blank" rel="external">#12</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+<li>Rename .pde files .ino <a href="https://github.com/4-20ma/i2c_adc_ads7828/pull/10" target="_blank" rel="external">#10</a> (<a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a>)</li>
+</ul>
+<h4 id="License"><a href="#License" class="headerlink" title="License"></a>License</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Copyright:: 2009-2016 Doc Walker</div><div class="line"></div><div class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</div><div class="line">you may not use this file except in compliance with the License.</div><div class="line">You may obtain a copy of the License at</div><div class="line"></div><div class="line">    http://www.apache.org/licenses/LICENSE-2.0</div><div class="line"></div><div class="line">Unless required by applicable law or agreed to in writing, software</div><div class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</div><div class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</div><div class="line">See the License for the specific language governing permissions and</div><div class="line">limitations under the License.</div></pre></td></tr></table></figure>
+<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><p><nop class="fa fa-github"> <a href="https://github.com/4-20ma" target="_blank" rel="external">4-20ma</a> / <a href="https://github.com/4-20ma/i2c_adc_ads7828" target="_blank" rel="external">i2c_adc_ads7828</a></nop></p>
+<p><nop class="fa fa-info-circle"> Source Code <a href="http://4-20ma.io/i2c_adc_ads7828/">Documentation</a></nop></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/arduino/">#arduino</a> <a href="/tags/c/">#c++</a> <a href="/tags/i2c/">#i2c</a> <a href="/tags/library/">#library</a> <a href="/tags/texas-instruments/">#texas instruments</a> <a href="/tags/ti/">#ti</a> <a href="/tags/adc/">#adc</a> <a href="/tags/ads7828/">#ads7828</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+    </div>
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2016/09/07/howto-use-git-sync-forked-repositories/">
-        <span class="archive-date">
-            Sep 2016
-        </span>
-        How to use Git to sync forked repositories
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2016/09/19/howto-automatically-test-build-arduino-libraries/">
-        <span class="archive-date">
-            Sep 2016
-        </span>
-        How to automatically test build Arduino libraries
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
 
