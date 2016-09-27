@@ -106,6 +106,11 @@ limitations under the License.
 
 #### Resources
 
-<span class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [ModbusMaster](https://github.com/4-20ma/ModbusMaster)
-<span class="fa fa-info-circle"> Source Code [Documentation](http://4-20ma.io/ModbusMaster/)
-<span class="fa fa-info-circle"> Modicon Modbus Protocol Reference Guide [PI-MBUS-300](http://modbus.org/docs/PI_MBUS_300.pdf)
+<span class="fa fa-github"> [4-20ma][user] / [ModbusMaster][source]
+<span class="fa fa-info-circle"> Source Code [Documentation][docs]
+<span class="fa fa-info-circle"> Modicon Modbus Protocol Reference Guide [PI-MBUS-300][modbus-protocol]
+
+[user]:             https://github.com/4-20ma
+[source]:           https://github.com/4-20ma/ModbusMaster
+[docs]:             http://4-20ma.io/ModbusMaster/
+[modbus-protocol]:  http://modbus.org/docs/PI_MBUS_300.pdf
