@@ -64,10 +64,10 @@ $ rm -rf path/to/submodule
 
 Removing a submodule can be a tedious task, but can be accomplished by following the tasks in this post.
 
-((( <nop class="fa fa-glass"> - Enjoy your lighter repository. - <nop class="fa fa-music"> )))
+((( <span class="fa fa-glass"> - Enjoy your lighter repository. - <span class="fa fa-music"> )))
 
 #### References
 
-<nop class="fa fa-git-square"> | Git Reference / [git-submodule](https://git-scm.com/docs/git-submodule)
-<nop class="fa fa-git-square"> | Pro Git > Git Tools / [Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
-<nop class="fa fa-external-link"> | David Walsh / [Remove a Submodule](https://davidwalsh.name/git-remove-submodule)
+<span class="fa fa-git-square"> | Git Reference / [git-submodule](https://git-scm.com/docs/git-submodule)
+<span class="fa fa-git-square"> | Pro Git > Git Tools / [Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+<span class="fa fa-external-link"> | David Walsh / [Remove a Submodule](https://davidwalsh.name/git-remove-submodule)

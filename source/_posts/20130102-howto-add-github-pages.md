@@ -48,9 +48,9 @@ $ git config branch.gh-pages.merge refs/heads/gh-pages  # optional
 $ git push origin gh-pages
 ````
 
-((( <nop class="fa fa-glass"> - Enjoy responsibly. - <nop class="fa fa-music"> )))
+((( <span class="fa fa-glass"> - Enjoy responsibly. - <span class="fa fa-music"> )))
 
 #### References
 
-<nop class="fa fa-github"> | GitHub Help / [GitHub Pages Basics](https://help.github.com/categories/github-pages-basics/)
-<nop class="fa fa-github"> | GitHub Help / [Creating Project Pages from the command line](https://help.github.com/articles/creating-project-pages-from-the-command-line/)
+<span class="fa fa-github"> | GitHub Help / [GitHub Pages Basics](https://help.github.com/categories/github-pages-basics/)
+<span class="fa fa-github"> | GitHub Help / [Creating Project Pages from the command line](https://help.github.com/articles/creating-project-pages-from-the-command-line/)

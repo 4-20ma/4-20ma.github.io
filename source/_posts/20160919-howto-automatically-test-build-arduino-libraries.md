@@ -179,7 +179,7 @@ When code is pushed to the GitHub repository, Travis CI will automatically build
 
 GitHub, Travis CI, and PlatformIO provide an effective platform for continuous integration test building of Arduino libraries. This integration assures the developer that their library compiles cleanly against selected hardware platforms.
 
-((( <nop class="fa fa-glass"> - <nop class="fa fa-music"> )))
+((( <span class="fa fa-glass"> - <span class="fa fa-music"> )))
 
 #### Resources
 

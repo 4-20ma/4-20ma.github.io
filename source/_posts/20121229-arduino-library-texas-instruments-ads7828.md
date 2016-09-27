@@ -18,4 +18,4 @@ tags:
   - ti
 ---
 
-`i2c_adc_ads7828` has a new home: <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [i2c_adc_ads7828](https://github.com/4-20ma/i2c_adc_ads7828).
+`i2c_adc_ads7828` has a new home: <span class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [i2c_adc_ads7828](https://github.com/4-20ma/i2c_adc_ads7828).

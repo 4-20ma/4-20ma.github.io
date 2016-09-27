@@ -20,4 +20,4 @@ tags:
   - serial
 ---
 
-`ModbusMaster` has a new home: <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [ModbusMaster](https://github.com/4-20ma/ModbusMaster).
+`ModbusMaster` has a new home: <span class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [ModbusMaster](https://github.com/4-20ma/ModbusMaster).

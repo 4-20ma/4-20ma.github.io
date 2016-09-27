@@ -77,20 +77,20 @@ You can now transfer the `.rpm` file to the target machine(s) and install via `r
 
 Test Kitchen is not only effective at performing integration testing for a Chef cookbook, it is also useful to spin up a pristine virtual machine to perform tasks such as building an RPM package.
 
-((( <nop class="fa fa-glass"> - <nop class="fa fa-music"> )))
+((( <span class="fa fa-glass"> - <span class="fa fa-music"> )))
 
 ####  References
 
 Cookbook Sources:
 
-- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm) – builds FcgiWrap RPM
-- <nop class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm) – builds Postfix RPM
+- <span class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [FcgiWrap RPM Cookbook](https://github.com/4-20ma/cookbook-fcgiwrap_rpm) – builds FcgiWrap RPM
+- <span class="fa fa-github"> [4-20ma](https://github.com/4-20ma) / [Postfix RPM Cookbook](https://github.com/4-20ma/cookbook-postfix_rpm) – builds Postfix RPM
 
 3rd party software used (alphabetical):
 
 - [Chef](https://www.chef.io)
-- <nop class="fa fa-github"> [schnell18](https://github.com/schnell18) / [FcgiWrap Source](https://github.com/schnell18/fcgiwrap)
-- <nop class="fa fa-git-square"> [Git](https://git-scm.com)
+- <span class="fa fa-github"> [schnell18](https://github.com/schnell18) / [FcgiWrap Source](https://github.com/schnell18/fcgiwrap)
+- <span class="fa fa-git-square"> [Git](https://git-scm.com)
 - [Parallels](http://www.parallels.com)
 - [Postfix](http://www.postfix.org)
 - [Ruby](https://www.ruby-lang.org/en/)
