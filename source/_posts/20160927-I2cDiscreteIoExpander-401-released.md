@@ -25,11 +25,11 @@ tags:
 
 `I2cDiscreteIoExpander` is an Arduino library for the Texas Instruments PCF8575C 16-bit I<sup>2</sup>C I/O expander. Version 4.0.1 was released on 27 Sep 2016 and includes a number of changes.
 
+#### Features
 The PCF8575C provides general-purpose remote I/O expansion for most microcontroller families via the I<sup>2</sup>C interface serial clock (SCL) and serial data (SDA).
 
 <!-- more -->
 
-#### Features
 The device features a 16-bit quasi-bidirectional input/output (I/O) port (P07..P00, P17..P10), including latched outputs with high-current drive capability for directly driving LEDs. Each quasi-bidirectional I/O can be used as an input or output without the use of a data-direction control signal. At power on, the I/Os are in 3-state mode. The strong pullup to VCC allows fast-rising edges into heavily loaded outputs. This device turns on when an output is written high and is switched off by the negative edge of SCL. The I/Os should be high before being used as inputs. After power on, as all the I/Os are set to 3-state, all of them can be used as inputs. Any change in setting of the I/Os as either inputs or outputs can be done with the write mode. If a high is applied externally to an I/O that has been written earlier to low, a large current (IOL) flows to GND.
 
 The fixed I<sup>2</sup>C address of the PCF8575C (0x20) is the same as the PCF8575, PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices, in any combination, to share the same I<sup>2</sup>C bus or SMBus.
