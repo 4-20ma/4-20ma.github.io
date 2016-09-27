@@ -148,10 +148,10 @@
         <h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>This post describes how to use <code>git</code> to sync forked repositories.</p>
 <h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>I frequently need to look up the exact series of commands needed to sync with an upstream repository. This post is primarily for my convenience, but may be useful to others as well.</p>
 <a id="more"></a>
-<h4 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h4><p>Fork the repository by clicking <strong>[ <nop class="fa fa-code-fork"> Fork ]</nop></strong> from your source code repository website. We’ll use <code>SOME-REPO</code>, in this example.</p>
+<h4 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h4><p>Fork the repository by clicking <strong>[ <span class="fa fa-code-fork"> Fork ]</span></strong> from your source code repository website. We’ll use <code>SOME-REPO</code>, in this example.</p>
 <h4 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h4><p>Create a local clone of your fork and configure <code>git</code> to sync your fork with the original:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/YOUR-USERNAME/SOME-REPO</div><div class="line">$ git remote add upstream https://github.com/ORIGINAL-USER/SOME-REPO</div></pre></td></tr></table></figure>
-<h4 id="Contribute"><a href="#Contribute" class="headerlink" title="Contribute"></a>Contribute</h4><p>Hack on code in your fork; make <nop class="fa fa-github"> Pull Requests / <nop class="fa fa-gitlab"> Merge Requests.</nop></nop></p>
+<h4 id="Contribute"><a href="#Contribute" class="headerlink" title="Contribute"></a>Contribute</h4><p>Hack on code in your fork; make <span class="fa fa-github"> Pull Requests / <span class="fa fa-gitlab"> Merge Requests.</span></span></p>
 <h4 id="Sync"><a href="#Sync" class="headerlink" title="Sync"></a>Sync</h4><p>Sync your fork to keep it up-to-date with the upstream repository:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin -v</div><div class="line">$ git fetch upstream -v</div><div class="line">$ git merge upstream/master</div></pre></td></tr></table></figure>
 <h4 id="Simplify"><a href="#Simplify" class="headerlink" title="Simplify"></a>Simplify</h4><p>Assign a <code>git</code> alias to perform the sync steps for you:</p>
@@ -159,10 +159,8 @@
 <p>Usage:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git pu</div><div class="line">From https://github.com/YOUR-USERNAME/SOME-REPO</div><div class="line"> = [up to date]      master     -&gt; origin/master</div><div class="line">From https://github.com/ORIGINAL-USER/SOME-REPO</div><div class="line"> = [up to date]      master     -&gt; upstream/master</div><div class="line">Already up-to-date.</div></pre></td></tr></table></figure>
 <h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>Perform the <strong>Fork</strong> &amp; <strong>Clone</strong> steps once for each forked repository. <strong>Contribute</strong> regularly. <strong>Sync</strong> often.</p>
-<p>((( <nop class="fa fa-glass"> - Party like a rock star! - <nop class="fa fa-music"> )))</nop></nop></p>
-<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><nop class="fa fa-github"> | Github Bootcamp / <a href="https://help.github.com/articles/fork-a-repo/" target="_blank" rel="external">Fork A Repo</a></nop></p>
-<p><nop class="fa fa-github"> | Github Guides / <a href="https://guides.github.com/activities/forking/" target="_blank" rel="external">Forking Projects</a></nop></p>
-<p><nop class="fa fa-gitlab"> | Gitlab / <a href="http://docs.gitlab.com/ce/gitlab-basics/fork-project.html" target="_blank" rel="external">How to fork a project</a></nop></p>
+<p>((( <span class="fa fa-glass"> - Party like a rock star! - <span class="fa fa-music"> )))</span></span></p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><span class="fa fa-github"> | Github Bootcamp / <a href="https://help.github.com/articles/fork-a-repo/" target="_blank" rel="external">Fork A Repo</a><br><span class="fa fa-github"> | Github Guides / <a href="https://guides.github.com/activities/forking/" target="_blank" rel="external">Forking Projects</a><br><span class="fa fa-gitlab"> | Gitlab / <a href="http://docs.gitlab.com/ce/gitlab-basics/fork-project.html" target="_blank" rel="external">How to fork a project</a></span></span></span></p>
 
     </div>
 
@@ -171,7 +169,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a> <a href="/tags/gitlab/">#gitlab</a> <a href="/tags/fork/">#fork</a> <a href="/tags/repository/">#repository</a>
+            <a href="/tags/gitlab/">#gitlab</a> <a href="/tags/git/">#git</a> <a href="/tags/github/">#github</a> <a href="/tags/fork/">#fork</a> <a href="/tags/repository/">#repository</a>
         </div>
     
 
